@@ -4,8 +4,10 @@ import Navbar from './componenets/navbar';
 
 function App() {
   return (
-    
- <Navbar/>
+    <div>
+<Navbar/>
+    </div>
+ 
     
   );
 }
