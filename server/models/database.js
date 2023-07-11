@@ -65,7 +65,7 @@ const User = sequelize.define('Users', {
         allowNull: false
       },
   })
-  sequelize.sync()
+  
   module.exports = {
     User,
     Products
