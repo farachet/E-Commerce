@@ -1,5 +1,7 @@
 const express = require("express");
 const itemRoutes = require('./routes/item.routes')
+const sequelize =require('../server/models/configdb');
+const { Sequelize } = require("sequelize");
 
 // TODO: Update this
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
@@ -15,6 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 
 app.use("/api/items", itemRoutes);
+
+sequelize.sync()
+.then(()=>console.log('database connected') )
+sequelize.authenticate().then(() => {
+  console.log("Connection has been established successfully");
+}).catch((err) => {
+  console.error("Unable to connect to the database:", err);
+});
 
 app.listen(PORT, function () {
   console.log("listening on port 3000!");
