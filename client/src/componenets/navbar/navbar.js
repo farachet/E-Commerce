@@ -1,24 +1,63 @@
 import React from 'react';
 import "./style.css"
+import { AppBar, Toolbar, Typography , Box } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import Avatar from '@mui/material/Avatar';
+import { IconButton } from '@mui/material';
+import { NotificationsActive, Chat } from '@mui/icons-material';
+import { FormControl,  MenuItem, Select } from '@mui/material';
 
-const Navbar = () => {
-    return (
-        <div className="header">
-      <div className="logo">Logo</div>
-      <div className="home">Home</div>
-      <div className="explore">Explore</div>
-      <div className="personal-collection">Personal Collection</div>
-      <div className="SearchBar" style={{width: 358, height: 48, left: 172, top: 26, position: 'absolute'}}>
-    <div className="Rectangle1" style={{width: 358, height: 48, left: 0, top: 0, position: 'absolute', borderRadius: 184, border: '0.25px rgba(255, 255, 255, 0.50) solid'}} />
-    <img className="Vector" src="https://cdn-icons-png.flaticon.com/512/482/482631.png" style={{width: 21, height: 21, left: 15, top: 14, position: 'absolute'}}></img>
-    <div className="SearchItemsFashionCollectionAndUsers" style={{left: 51, top: 16, position: 'absolute', color: 'white', fontSize: 14, fontFamily: 'SF Pro Display', fontWeight: '400', letterSpacing: 0.42, wordWrap: 'break-word'}}>Search Items, Fashion, Collection and Users</div>
-  </div>
-      <div className="drops">Drops</div>
-        <div className="more">More</div>
-        <div className="vector-6"></div>
-    </div>
+function Navbar() {
+  return (
+    <AppBar position="static" className='header'>
+      <Toolbar>
+        <Box>
+          <Typography className='logo'>Logo</Typography>
+          <Typography className='Home'>Home</Typography>
+          <Typography className='explore'>Explore
+          <FormControl>
+     
+      {/* <Select  className='down' style={{color : "white"}}  >
+        <MenuItem value="option1">Option 1</MenuItem>
+        <MenuItem value="option2">Option 2</MenuItem>
+        <MenuItem value="option3">Option 3</MenuItem>
+      </Select>  */}
+    </FormControl>
+          </Typography>
+          <Typography className='personal-collection'>Personal Collection</Typography>
+          <Box className="search-container"> 
+            <SearchIcon className='search-icon' />
+            <input className="search-items" type="text" placeholder="Search Items, Fashion, Collection, and Users" />
+          </Box>
+          <Typography variant="body1" className='drops'>Drops</Typography>
+          <Typography variant="body1" className='more'>More</Typography>
+          <Box className="vector-6"></Box>
+        </Box>
 
-    );
+
+        <Box>
+       
+      <IconButton style={{color : "white"}} >
+        <NotificationsActive  className='icondel'/>
+      </IconButton>
+
+      <IconButton style={{color : "white"}} >
+        <Chat   className='iconMes'/>
+        
+      </IconButton>
+
+  
+        </Box>
+     
+        <Box>
+   
+        <Avatar className='Avatar'/>
+     
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
 export default Navbar;
+  
