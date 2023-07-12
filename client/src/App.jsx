@@ -7,7 +7,7 @@ import AddProduct from './componenets/seller/AddProduct';
 
 function App() {
   return (
-    <div  >
+    <div className='app' >
 
       <Navbar/>
    
