@@ -1,8 +1,9 @@
 const router=require("express").Router()
-const {AddUser,addProducts}=require("../controllers/userController")
+const {AddUser}=require("../controllers/usercontroller")
+
 
 
 router.get("/user",AddUser)
-router.get("/product",addProducts)
+
 
 module.exports=router
