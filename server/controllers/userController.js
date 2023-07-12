@@ -1,10 +1,6 @@
-const {User,Products}= require('../models/database')
-
+const {user}= require('../models/user')
 module.exports= {
     AddUser:(req,res)=>{
-        User.create({})
-    },
-    addProducts:(req,res)=>{
-        Products.create({})
+        client.create({})
     }
 }
