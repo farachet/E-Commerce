@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 
 app.use("/api/user", userRoute);
+app.use("/api/product", productRoute);
 
 sequelize.sync()
 .then(()=>console.log('database connected') )
@@ -31,5 +32,5 @@ sequelize.authenticate().then(() => {
 });
 
 app.listen(PORT, function () {
-  console.log("listening on port "+PORT);
+  console.log("listening on port "+ PORT);
 });
