@@ -14,9 +14,9 @@ const ClientHeader = () => {
                 src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_640.jpg"
                 sx={{ 
                   width: "100%"
-                  , height: "100%"
+                  ,height: "100%"
                   ,borderRadius:"5px",
-                    opacity:0.6,
+                  opacity:0.6,
                     height:375
                 }}
             />
