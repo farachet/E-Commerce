@@ -1,5 +1,11 @@
 
 .header {
+<<<<<<< HEAD
+=======
+    position: relative;
+    width: 1440px;
+    height: 101px;
+>>>>>>> e0b881a27275f5ef6d6e620494a3384b68d36f75
   
   position: relative;
   background: linear-gradient(113.49deg, #984D38 -30.3%, #181E41 58.12%);
