@@ -7,7 +7,7 @@ const {AddProducts , getAllProducts }=require("../controllers/productscontroller
 
 
 
-router.get("/product",AddProducts )
+router.get("/products",AddProducts )
 
 router.get("/getAll",getAllProducts )
 
