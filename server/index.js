@@ -8,7 +8,6 @@ const AdminRouter = require("./routes/admin");
 
 const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
-const AdminRouter = require("./routes/admin");
 const cors = require("cors")
 
 
