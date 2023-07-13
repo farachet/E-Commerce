@@ -1,50 +1,60 @@
-.SecretRare {
+ .SecretRare {
     color: 'rgba(255;255;255;0.50)';
     font-size: 14.61;
     font-family: 'Poppins';
     font-weight: '500';
     word-wrap: 'break-word'
-    }
-    
-    
-    .search-items{
-        border: none;
-        font-family: 'SF Pro Display';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: 0.03em;
-        background-color: transparent;
-        width: 318px; 
-        height: 35px; 
-        border: 0.5px solid rgba(255, 255, 255, 0.5); 
-        border-radius: 184px; 
-        margin-top: -8.5px;
-    }
-    
-    
-    .vector {
-     width: 1.2325rem;
+}
+
+
+.search-items {
+    border: none;
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.03em;
+    background-color: transparent;
+    width: 318px;
+    height: 35px;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 184px;
+    margin-top: -8.5px;
+}
+
+
+.vector {
+    width: 1.2325rem;
     height: 1.09556rem;
     flex-shrink: 0;
     stroke-width: 1.096px;
     stroke: #FFF;
-    }
-    
-    .Collect {
-        margin-left: 350px;
-    }
-    
-    
-    .parent {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        }
-        ::placeholder{
-            color: white;
-        }
-    
+}
+
+.Collect {
+    margin-left: 350px;
+} */
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+::placeholder {
+    color: white;
+}
+ Input ::after {
+    border-bottom: 2px solid #5e0cb1;
+    left: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    right: 0;
+}
+
+
