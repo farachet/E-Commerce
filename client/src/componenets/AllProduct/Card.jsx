@@ -63,7 +63,7 @@ const Card = () => {
         alignItems:"center"
         
       }}>
-            <FavoriteBorderRoundedIcon />
+            <FavoriteBorderRoundedIcon sx={{color:"red"}}/>
             <Button 
             variant="contained"
             sx={{

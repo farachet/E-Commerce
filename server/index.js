@@ -7,7 +7,7 @@ const category = require("./controllers/categorycontroller");
 const personalcollection = require("./controllers/personnalcollcontroller");
 const admin = require("./controllers/admincontrollerr");
 const request = require("./controllers/requestcontroller");
-const sequelize = require("../server/models/configdb");
+const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
 const AdminRouter = require("./routes/admin");
 

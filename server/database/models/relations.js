@@ -7,7 +7,7 @@ const{posts}=require('./posts');
 const{Products}=require('./products');
 
 const { Sequelize } = require('sequelize');
-const sequelize = require('./configdb');
+const sequelize = require('../configdb');
 console.log("hi")
 
   

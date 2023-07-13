@@ -5,6 +5,7 @@ import Products from '../seller/Product';
 import Cart from "./Card.jsx"
 
 import Filter from './Filter.jsx';
+import CardsFilter from './CardsFilter';
 const AllProduct = () => {
   return (
     <Box className='allProducts-container' style={{
@@ -32,15 +33,50 @@ const AllProduct = () => {
         padding:"0px",
         width:"69%",
         display:"flex",
-        justifyContent:"space-around"
+        flexDirection:"column"
         
 
 
       }} >
-        <Cart/>
-        <Cart/>
-        <Cart/>
-        <Cart/>
+
+              <Box sx={{
+                 
+                  height:"10%",
+                  display:"flex",
+                  
+                  justifyContent:"space-between"
+
+              }}>
+                <Typography 
+                variant='subtitle2'
+                sx={{
+                  color:" rgba(255, 255, 255, 0.80);",
+                  fontWeight:"bold",
+                  fontSize:"20px",
+                  marginTop:"25px"
+                }}
+                >
+                  23,344,420 items
+                </Typography>
+                <CardsFilter/>
+
+              </Box>
+
+            <Box sx={{
+              display:"flex",
+              gap:"30px",
+              width:"100%",
+              
+              flexWrap:"wrap",
+            }}>
+                <Cart/>
+                <Cart/>
+                <Cart/>
+                <Cart/>
+                <Cart/>
+                <Cart/>
+                <Cart/>
+            </Box>
       </Box>
     </Box>
   )

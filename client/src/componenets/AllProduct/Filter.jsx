@@ -8,7 +8,8 @@ const Filter = () => {
             sx={{
               display:"flex",
               color:"white",
-              gap:"10px"
+              gap:"10px",
+              padding:"20px"
           }}
             >
                       <DragIndicatorIcon/>
