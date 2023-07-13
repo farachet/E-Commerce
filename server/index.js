@@ -6,7 +6,7 @@ const AdminRouter = require("./routes/admin");
 
 
 
-const sequelize = require("../server/models/configdb");
+const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
 
 const app = express();

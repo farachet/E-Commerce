@@ -1,5 +1,5 @@
 const { admin } = require("../database/models/admin");
-const { user } = require("../database/models/user");
+
 const { Products } = require("../database/models/products");
 const { category } = require("../database/models/category");
 module.exports = {
