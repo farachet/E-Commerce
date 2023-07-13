@@ -1,7 +1,6 @@
 const {Products}= require('../database/models/products')
 module.exports= {
     AddProducts :(req,res)=>{
-<<<<<<< HEAD
         Products.create({
 
             productname: req.body.productname,
@@ -24,13 +23,7 @@ module.exports= {
             res.status(500).send(err)
           })
       }
-    )
-      .then((result) => {
-        res.status(204).send(result)
-      })
-      .catch((err) => {
-        res.status(500).send(err)
-      })
+    
   },
 
 deleteAll : (req , res) => {
