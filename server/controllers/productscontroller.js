@@ -1,7 +1,6 @@
 const {Products}= require('../database/models/products')
 module.exports= {
     AddProducts :(req,res)=>{
-<<<<<<< HEAD
         Products.create({
 
             productname: req.body.productname,
@@ -24,8 +23,4 @@ module.exports= {
             res.status(500).send(err)
           })
       }
-=======
-        Products.create({})
-    }
->>>>>>> 5ee5b4b19e2c84521526d813d54894e540e711be
 }
