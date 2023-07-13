@@ -1,4 +1,4 @@
-const {Products}= require('../models/products')
+const {Products}= require('../database/models/products')
 module.exports= {
     AddProducts :(req,res)=>{
         Products.create({

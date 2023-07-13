@@ -1,7 +1,7 @@
-const { admin } = require("../models/admin");
-
-const { Products } = require("../models/products");
-const { category } = require("../models/category");
+const { admin } = require("../database/models/admin");
+const { user } = require("../database/models/user");
+const { Products } = require("../database/models/products");
+const { category } = require("../database/models/category");
 module.exports = {
   //Users
   //GetAll
