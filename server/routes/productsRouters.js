@@ -1,5 +1,8 @@
 const router=require("express").Router()
-const {AddProducts , getAllProducts , UpdateProduct, deleteAll, deleteById}=require("../controllers/productscontroller")
+const {AddProducts , getAllProducts , UpdateProduct, deleteAll, deleteById}=require("../controllers/productscontroller"
+
+
+
 
 
 
