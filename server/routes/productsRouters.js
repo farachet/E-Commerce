@@ -1,17 +1,13 @@
 const router=require("express").Router()
-<<<<<<< HEAD
-const {AddProducts , getAllProducts }=require("../controllers/productscontroller")
-=======
-const {AddProducts }=require("../controllers/productscontroller")
->>>>>>> 5ee5b4b19e2c84521526d813d54894e540e711be
+const {AddProducts , getAllProducts , UpdateProduct, deleteAll, deleteById}=require("../controllers/productscontroller")
 
 
 
-router.get("/product",AddProducts )
-<<<<<<< HEAD
+router.post("/AddProduct",AddProducts )
 router.get("/getAll",getAllProducts )
-=======
->>>>>>> 5ee5b4b19e2c84521526d813d54894e540e711be
+router.put("/edit/:id",UpdateProduct )
+router.delete("/deleteAll", deleteAll )
+router.delete("/deleteByid/:id", deleteById )
 
 
 module.exports=router
