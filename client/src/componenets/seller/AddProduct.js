@@ -46,7 +46,7 @@ const AddProducts = () => {
               height: 0,
               left: 0,
               top: 291,
-              position: "absolute",
+              
             }}
           ></Box>
           <Box
@@ -56,7 +56,7 @@ const AddProducts = () => {
               height: 0,
               left: 0,
               top: 355,
-              position: "absolute",
+             
             }}
           ></Box>
           <Box
@@ -66,7 +66,7 @@ const AddProducts = () => {
               height: 24,
               left: 25,
               top: 119,
-              position: "absolute",
+              
             }}
           ></Box>
           <Box
@@ -74,7 +74,7 @@ const AddProducts = () => {
             style={{
               left: 0,
               top: 0,
-              position: "absolute",
+              
               color: "white",
               fontSize: 16,
               fontFamily: "Poppins",
@@ -96,7 +96,7 @@ const AddProducts = () => {
               height: 24,
               left: 25,
               top: 183,
-              position: "absolute",
+             
             }}
           >
             <Input
@@ -105,7 +105,6 @@ const AddProducts = () => {
               style={{
                 left: 0,
                 top: 0,
-                position: "absolute",
                 color: "white",
                 fontSize: 16,
                 fontFamily: "Poppins",
@@ -130,7 +129,6 @@ const AddProducts = () => {
               style={{
                 left: 0,
                 top: 0,
-                position: "absolute",
                 color: "white",
                 fontSize: 16,
                 fontFamily: "Poppins",
