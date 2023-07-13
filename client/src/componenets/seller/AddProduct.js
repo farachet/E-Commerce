@@ -19,63 +19,9 @@ const AddProducts = () => {
               borderRadius: 10,
             }}
           ></Box>
-          <Box
-            className="Line402"
-            style={{
-              width: 259,
-              height: 0,
-              left: 0,
-              top: 163,
-              position: "absolute",
-            }}
-          ></Box>
-          <Box
-            className="Line403"
-            style={{
-              width: 259,
-              height: 0,
-              left: 0,
-              top: 227,
-              position: "absolute",
-            }}
-          ></Box>
-          <Box
-            className="Line404"
-            style={{
-              width: 259,
-              height: 0,
-              left: 0,
-              top: 291,
+          <Box style={{
               
-            }}
-          ></Box>
-          <Box
-            className="Line405"
-            style={{
-              width: 259,
-              height: 0,
-              left: 0,
-              top: 355,
              
-            }}
-          ></Box>
-          <Box
-            className="Group48095656"
-            style={{
-              width: 344,
-              height: 24,
-              left: 25,
-              top: 119,
-              
-            }}
-          ></Box>
-          <Box
-            className="Status"
-            style={{
-              left: 0,
-              top: 0,
-              
-              color: "white",
               fontSize: 16,
               fontFamily: "Poppins",
               fontWeight: "500",
@@ -85,7 +31,7 @@ const AddProducts = () => {
             <Input
               className="inpuut"
               placeholder="Type product name"
-              sx={{ left: 20, top: 100, color: "white" }}
+              sx={{ left: 25, top: 100, color: "white" }}
             />
           </Box>
 
@@ -96,7 +42,7 @@ const AddProducts = () => {
               height: 24,
               left: 25,
               top: 183,
-             
+              position: "absolute",
             }}
           >
             <Input
@@ -110,30 +56,32 @@ const AddProducts = () => {
                 fontFamily: "Poppins",
                 fontWeight: "500",
                 wordWrap: "break-word",
+               
               }}
             />
           </Box>
 
+          
           <Box
             className="Group48095657"
             style={{
               width: 342,
               height: 24,
               left: 25,
-              top: 183,
+              top: 270,
               position: "absolute",
             }}
           >
             <Input
-              className="Price"
+              className="Image"
+              placeholder="Type product Image"
               style={{
-                left: 0,
-                top: 0,
                 color: "white",
                 fontSize: 16,
                 fontFamily: "Poppins",
                 fontWeight: "500",
                 wordWrap: "break-word",
+               
               }}
             />
           </Box>
@@ -141,7 +89,7 @@ const AddProducts = () => {
         <Box>
           <Button
             variant="contained"
-            sx={{ color: "white", top: 250, left: 70 }}
+            sx={{ color: "white", top: 290, left: 70 }}
           >
             Add
           </Button>

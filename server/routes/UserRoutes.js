@@ -1,9 +1,8 @@
-const router=require("express").Router()
-const {AddUser}=require("../controllers/usercontroller")
+// const router=require("express").Router()
 
 
 
-router.get("/user",AddUser)
+// router.get()
 
 
-module.exports=router
+// module.exports = router;

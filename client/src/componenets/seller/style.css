@@ -48,3 +48,13 @@
 ::placeholder {
     color: white;
 }
+ Input ::after {
+    border-bottom: 2px solid #5e0cb1;
+    left: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    right: 0;
+}
+
+

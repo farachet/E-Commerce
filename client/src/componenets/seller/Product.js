@@ -57,7 +57,7 @@ const Products = ({data}) => {
                 wordWrap: "break-word",
               }}
             >
-            {/* name */}
+          
               {el.productname}
             </Box>
             <Box

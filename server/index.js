@@ -9,6 +9,7 @@ const admin = require("./controllers/admincontrollerr");
 const request = require("./controllers/requestcontroller");
 const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
+const AdminRouter = require("./routes/admin");
 const cors = require("cors")
 
 
@@ -16,10 +17,9 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 app.use(cors())
-const AdminRouter = require("./routes/admin");
 
-// const app = express();
-// const PORT = process.env.PORT || 3000;
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
