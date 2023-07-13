@@ -1,11 +1,10 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('./configdb');
-const {user}=require("./user")
+const {seller}=require("./seller")
 const {category}=require("./category")
-const{cards}=require("./cards")
 
 const Products = sequelize.define ('Products',{
-    id : {
+       id:{
         type:DataTypes.INTEGER,
         autoIncrement : true,
         primaryKey:true
@@ -13,7 +12,6 @@ const Products = sequelize.define ('Products',{
       productname: {
         type: DataTypes.STRING,
         allowNull: false,
-        
       },
       price: {
         type: DataTypes.FLOAT,
@@ -33,13 +31,17 @@ const Products = sequelize.define ('Products',{
         type: DataTypes.STRING,
         allowNull: false
       },
+      approved : {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+      }
   })
-  user.hasMany(Products, {
-    foreignKey: 'userId',
+  seller.hasMany(Products, {
+    foreignKey: 'sellerId',
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
   });
-  Products.belongsTo(user)
+  Products.belongsTo(seller)
   
   category.hasMany(Products, {
     foreignKey: 'categoryId',
@@ -47,12 +49,7 @@ const Products = sequelize.define ('Products',{
     onUpdate: 'CASCADE'
   });
   Products.belongsTo(category)
-  cards.hasMany(Products, {
-    foreignKey: 'cardsId',
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
-  });
-  Products.belongsTo(cards)
+  
 
 
   module.exports = {

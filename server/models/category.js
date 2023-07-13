@@ -10,7 +10,6 @@ const category = sequelize.define('category', {
     categoryname: {
       type: DataTypes.STRING,
       allowNull: false,
-      
     },
   })
   module.exports = {
