@@ -1,8 +1,14 @@
+
 body{
+  width: 100% ;
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background: linear-gradient(113.49deg, #984D38 -30.3%, #181E41 58.12%) ;
+  box-sizing: border-box;
 }
 
+.app{
+  width: 100%;
+}
