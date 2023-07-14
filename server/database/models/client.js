@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../configdb');
+const {cards}=require('./cards')
 
-
-const seller = sequelize.define('seller', {
+const client = sequelize.define('client', {
   id : {
    type:DataTypes.INTEGER,
    autoIncrement : true,
@@ -27,8 +27,22 @@ const seller = sequelize.define('seller', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  
+  image: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  birthday: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
+  role:{
+    type: DataTypes.STRING,
+    allowNull: false
+  }
+  
 },{ timestamps: false })
 
 
 module.exports = {
-    seller };
+    client };
