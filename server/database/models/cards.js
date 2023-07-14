@@ -1,23 +1,25 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../configdb');
 const {client}=require('./client')
-const {Products} =require('./products')
 
-const cards = sequelize.define('cards', {
+
+const cart = sequelize.define('cart', {
     id: {
       type:DataTypes.INTEGER,
       autoIncrement : true,
       primaryKey:true
         },
+        productId:{
+          type:DataTypes.INTEGER,
+          allowNull:false
+        }
+      },{
+        timestamps:false
       })
-  client.hasOne(cards)
-  cards.belongsTo(client)
-  cards.hasMany(Products, {
-    foreignKey: 'productId',
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
-  });
-  Products.belongsTo(cards)
+  client.hasMany(cart)
+  cart.belongsTo(client)
+
   
-      module.exports = {
-        cards };
+  module.exports = {
+        cart 
+};

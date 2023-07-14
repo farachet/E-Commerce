@@ -35,7 +35,7 @@ const Products = sequelize.define ('Products',{
         type: DataTypes.BOOLEAN,
         allowNull: false
       }
-  })
+  },{ timestamps: false })
   seller.hasMany(Products, {
     foreignKey: 'sellerId',
     onDelete: 'CASCADE',

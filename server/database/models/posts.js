@@ -24,7 +24,7 @@ const posts = sequelize.define('posts', {
     foreignKey: "clientId",
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
-  });
+  },{ timestamps: false });
   posts.belongsTo(client);
   module.exports = {
     posts  };

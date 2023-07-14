@@ -41,7 +41,7 @@ const client = sequelize.define('client', {
     allowNull: false
   }
   
-})
+},{ timestamps: false })
 
 
 module.exports = {

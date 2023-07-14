@@ -17,7 +17,7 @@ const admin = sequelize.define('admin', {
     allowNull: false
   },
 
-})
+},{ timestamps: false })
 
   module.exports = {
     admin };
