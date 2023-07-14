@@ -1,0 +1,14 @@
+.MuiDataGrid-root .MuiDataGrid-row .MuiDataGrid-cell,
+.MuiDataGrid-root .MuiDataGrid-columnHeader,
+.MuiDataGrid-root .MuiDataGrid-columnHeader:focus,
+.MuiDataGrid-root .MuiDataGrid-columnHeader:hover,
+.MuiDataGrid-root .MuiDataGrid-columnHeader:focus-within,
+.MuiDataGrid-root .MuiDataGrid-cell--header .MuiDataGrid-value {
+  color: white;
+}
+body{
+  color: white;
+}
+.footer{
+  color: white;
+}
