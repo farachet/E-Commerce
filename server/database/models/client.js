@@ -1,6 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../configdb');
-const {cards}=require('./cards')
 
 const client = sequelize.define('client', {
   id : {

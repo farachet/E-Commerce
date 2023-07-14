@@ -1,104 +1,141 @@
 const { admin } = require("../database/models/admin");
-
+const {seller} = require("../database/models/seller")
+const {client} = require("../database/models/client")
 const { Products } = require("../database/models/products");
 const { category } = require("../database/models/category");
 module.exports = {
   //Users
   //GetAll
-  getAllUsers(req, res) {
-    const { role } = req.params;
+  getAllSellers(req, res) {
+    
 
-    user
-      .findAll({ where: { role } })
-      .then((users) => {
-        res.status(200).json(users);
+    seller
+      .findAll()
+      .then((sellers) => {
+        res.status(200).json(sellers);
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).json({ error: "Failed to get users" });
+        res.status(500).json({ error: "Failed to get sellers" });
       });
   },
-  //Get one
-  getUser(req, res) {
-    const { id, role } = req.params;
+  getAllClients(req, res) {
+    
 
-    user
-      .findOne({ where: { id, role } })
-      .then((user) => {
-        if (!user) {
-          return res.status(404).json({ error: `${role} not found` });
-        }
-        res.status(200).json(user);
+    client
+      .findAll()
+      .then((clients) => {
+        res.status(200).json(clients);
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).json({ error: `Failed to get ${role}` });
+        res.status(500).json({ error: "Failed to get clients" });
       });
   },
-  //Add user
-  addUser(req, res) {
-    const { firstName, lastName, email, password, image, birthday, role } =
-      req.body;
+  deleteClient(req, res) {
 
-    user
-      .create({
-        firstName,
-        lastName,
-        email,
-        password,
-        image,
-        birthday,
-        role,
-      })
-      .then((createdUser) => {
-        res.status(201).json(createdUser);
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: `Failed to create ${role}` });
-      });
-  },
+    const {clientid} = req.params;
 
-  //Update user
-  updateUser(req, res) {
-    const { id, role } = req.params;
-    const { firstName, lastName, email, password, image, birthday } = req.body;
-
-    user
-      .update(
-        { firstName, lastName, email, password, image, birthday },
-        { where: { id, role } }
-      )
-      .then(([rowsUpdated]) => {
-        if (rowsUpdated === 0) {
-          return res.status(404).json({ error: `${role} not found` });
-        }
-        res.status(200).json({ message: `${role} updated successfully` });
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: `Failed to update ${role}` });
-      });
-  },
-  //delete user
-  deleteUser(req, res) {
-    const { id, role } = req.params;
-
-    user
-      .destroy({ where: { id, role } })
+    client
+      .destroy({ where: { id:clientid } })
       .then((rowsDeleted) => {
         if (rowsDeleted === 0) {
-          return res.status(404).json({ error: `${role} not found` });
+          return res.status(404).json({ error: `client not found` });
         }
-        res.status(200).json({ message: `${role} deleted successfully` });
+        res.status(200).json({ message: `client deleted successfully` });
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).json({ error: `Failed to delete ${role}` });
+        res.status(500).json({ error: `Failed to delete client` });
       });
-    //Products
-    //get all product
+    
   },
+  deleteSeller(req, res) {
+    console.log('fgh');
+    const {id} = req.params;
+    console.log(id)
+
+    seller
+      .destroy({ where: { id:id } })
+      .then((rowsDeleted) => {
+        if (rowsDeleted === 0) {
+          return res.status(404).json({ error: `seller not found` });
+        }
+        res.status(200).json({ message: `seller deleted successfully` });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: `Failed to delete seller` });
+      });
+    
+  },
+ 
+
+
+  //Get one
+  // getUser(req, res) {
+  //   const { id, role } = req.params;
+
+  //   user
+  //     .findOne({ where: { id, role } })
+  //     .then((user) => {
+  //       if (!user) {
+  //         return res.status(404).json({ error: `${role} not found` });
+  //       }
+  //       res.status(200).json(user);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: `Failed to get ${role}` });
+  //     });
+  // // },
+  // //Add user
+  // addUser(req, res) {
+  //   const { firstName, lastName, email, password, image, birthday, role } =
+  //     req.body;
+
+  //   user
+  //     .create({
+  //       firstName,
+  //       lastName,
+  //       email,
+  //       password,
+  //       image,
+  //       birthday,
+  //       role,
+  //     })
+  //     .then((createdUser) => {
+  //       res.status(201).json(createdUser);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: `Failed to create ${role}` });
+  //     });
+  // },
+
+  //Update user
+  // updateUser(req, res) {
+  //   const { id, role } = req.params;
+  //   const { firstName, lastName, email, password, image, birthday } = req.body;
+
+  //   user
+  //     .update(
+  //       { firstName, lastName, email, password, image, birthday },
+  //       { where: { id, role } }
+  //     )
+  //     .then(([rowsUpdated]) => {
+  //       if (rowsUpdated === 0) {
+  //         return res.status(404).json({ error: `${role} not found` });
+  //       }
+  //       res.status(200).json({ message: `${role} updated successfully` });
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: `Failed to update ${role}` });
+  //     });
+  // },
+  //delete user
+
   getAllProducts(req, res) {
     Products.findAll({})
       .then((products) => {
