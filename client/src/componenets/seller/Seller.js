@@ -25,7 +25,7 @@ const Seller = () => {
       }
     const fetch = () => {
         axios
-          .get("http://localhost:3000/api/product/getAll")
+          .get(`http://localhost:3000/api/product/getAll/1`)
           .then((res) => {
             console.log(res.data)
             setData(res.data)

@@ -12,7 +12,6 @@ function App() {
 
       <Navbar/>
 
-    <Client />
 <br/>
 <br/>
     <Seller/>

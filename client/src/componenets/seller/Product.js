@@ -23,7 +23,7 @@ const Products = ({data , deleteOneproduct , setShow , handleEdit}) => {
   return (
     <Box className="parent" >
       {data.map((el ) => (
-    <Box  sx={{ backgroundColor:"rgba(255, 255, 255, 0.1)",
+    <Box key={el.id}  sx={{ backgroundColor:"rgba(255, 255, 255, 0.1)",
     width:"284px",
     height:"434px",
     padding:"10px",display:'flex',
