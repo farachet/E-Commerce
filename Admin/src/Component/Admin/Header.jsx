@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 export default function Header() {
   return (
@@ -12,6 +13,8 @@ export default function Header() {
         The top NFTs on _________ , ranked by volume, floor price and other
         statistics.
       </Typography>
+      <Button variant="outlined">Client</Button>
+      <Button variant="outlined">Seller</Button>
     </Box>
   );
 }

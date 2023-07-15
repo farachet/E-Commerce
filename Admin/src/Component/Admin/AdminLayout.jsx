@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function AppAdmin() {
   //  const [categories, setCategories] = useState([]);
   // const [products, setProducts] = useState([]);
   // const [filteredProducts, setFilteredProducts] = useState([]);
-  const [filter, setFilter] = useState("");
+  //const [filter, setFilter] = useState("");
   // const [selectedCategory, setSelectedCategory] = useState("");
 
   // useEffect(() => {
@@ -65,7 +65,7 @@ function AppAdmin() {
 
   return (
     <div>
-      <button>Client</button>
+      {/* <button>Client</button>
       <button>Seller</button>
 
       <h3>Filter By Days:</h3>
@@ -76,7 +76,7 @@ function AppAdmin() {
         <option value="">All</option>
         <option value="week">Week</option>
         <option value="month">Month</option>
-      </select>
+      </select> */}
 
       {/* <h3>All Categories:</h3>
       {categories.length > 0 ? (
