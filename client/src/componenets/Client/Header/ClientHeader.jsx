@@ -1,11 +1,42 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./ClientHeader.css"
-import { Container,Box, Typography } from '@mui/material'
+import { Container,Box, Typography, TextField } from '@mui/material'
 import Avatar from '@mui/material/Avatar';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 const ClientHeader = () => {
+  const [open, setOpen] = useState(false);
+  const [profileData, setProfileData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    birthday: '',
+  });
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleSave = () => {
+    // Handle the save action here
+    // You can include your profile update logic
+    // e.g., make an API call, update state, etc.
+    handleClose();
+  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   return (
     <Container className="Header-container" >
       <Box>
@@ -64,6 +95,7 @@ const ClientHeader = () => {
         
             </Box>
               <Button
+              onClick={handleOpen}
               className='edit-btn'
               sx={{
                 position:"absolute",
@@ -76,7 +108,61 @@ const ClientHeader = () => {
 
                 
 
-              }}> <ModeEditOutlineIcon/> Edit Profile </Button>  
+              }}> <ModeEditOutlineIcon /> Edit Profile </Button>  
+              
+              <div>
+                  
+                  <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
+                    <DialogTitle>Update Profile</DialogTitle>
+                    <DialogContent>
+                    <form>
+                          <TextField
+                            name="firstName"
+                            label="First Name"
+                            fullWidth
+                            value={profileData.firstName}
+                            onChange={handleChange}
+                            margin="normal"
+                          />
+                          <TextField
+                            name="lastName"
+                            label="Last Name"
+                            fullWidth
+                            value={profileData.lastName}
+                            onChange={handleChange}
+                            margin="normal"
+                          />
+                          <TextField
+                            name="email"
+                            label="Email"
+                            fullWidth
+                            value={profileData.email}
+                            onChange={handleChange}
+                            margin="normal"
+                          />
+                          <TextField
+                            name="birthday"
+                            label="Birthday"
+                            fullWidth
+                            value={profileData.birthday}
+                            onChange={handleChange}
+                            margin="normal"
+                          />
+                        </form>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose} sx={{
+                        backgroundColor:"rgb(108, 93, 211)",
+                        color:"white"
+                      }}>Cancel</Button>
+                      <Button onClick={handleSave} color="primary" sx={{
+                        color:"rgb(108, 93, 211)",
+                        fontSize:"20px",
+                        fontWeight:"bold"
+                      }}>Save</Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
               </Box>
               <Box>
                 <Typography 

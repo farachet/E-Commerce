@@ -6,11 +6,17 @@ import Avatar from "@mui/material/Avatar";
 import { IconButton } from "@mui/material";
 import { NotificationsActive, Chat } from "@mui/icons-material";
 import { FormControl } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <AppBar position="static" className="header" style={{  display: "flex" , justifycontent : 'spaceBetween' }}>
-      <Toolbar >
+      <Toolbar sx={
+        {
+          display:"flex",
+          justifyContent:"space-between"
+        }
+      } >
       <Box style={{ display: "inline-block" }}>
   <Typography className="logo" style={{ display: "inline-block" }}>
     Logo
@@ -27,9 +33,10 @@ function Navbar() {
 
 
 
-  <Typography className="Home" style={{ display: "inline-block" }}>
+ <Link to='/home'>
+ <Typography className="Home" style={{ display: "inline-block" }}>
     Home
-  </Typography>
+  </Typography></Link> 
   <Typography className="explore" style={{ display: "inline-block" }}>
     Explore
     <FormControl>
@@ -54,18 +61,17 @@ function Navbar() {
     More
   </Typography>
 </Box>
- <Box>
-          <IconButton style={{ color: "white" , display: "inline-block"}}>
+
+
+        <Box>
+        <IconButton style={{ color: "white" , display: "inline-block"}}>
             <NotificationsActive className="icondel" />
           </IconButton>
 
           <IconButton style={{ color: "white" , display: "inline-block"}}>
             <Chat className="iconMes" />
           </IconButton>
-        </Box>
-
-        <Box>
-          <Avatar className="Avatar" src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" sx={{display: "inline-block"}}/>
+          <Link to="/"><Avatar className="Avatar" src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" sx={{display: "inline-block"}}/></Link>
         </Box>
       </Toolbar>
     </AppBar>

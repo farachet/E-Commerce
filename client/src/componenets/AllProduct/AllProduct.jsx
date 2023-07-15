@@ -1,12 +1,21 @@
-import React from 'react'
-import { Container,Box,Typography, FormControl, InputLabel, Select, MenuItem, Card} from '@mui/material'
+import React, { useEffect,useState } from 'react'
+import { Box,Typography} from '@mui/material'
 import "./AllProduct.css"
-import Products from '../seller/Product';
 import Cart from "./Card.jsx"
-
 import Filter from './Filter.jsx';
 import CardsFilter from './CardsFilter';
+import axios from 'axios';
 const AllProduct = () => {
+  const[products,setProducts]=useState([])
+  useEffect(()=>{
+    axios.get(`http://localhost:3001/api/product/getAll`)
+    .then((res)=>{
+        setProducts(res.data)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  },[])
   return (
     <Box className='allProducts-container' style={{
       margin:"200px 40px ",
@@ -70,12 +79,9 @@ const AllProduct = () => {
               flexWrap:"wrap",
             }}>
                 <Cart/>
-                <Cart/>
-                <Cart/>
-                <Cart/>
-                <Cart/>
-                <Cart/>
-                <Cart/>
+                {
+                  products.map(product=><Cart key={product.id}/>)
+                }
             </Box>
       </Box>
     </Box>
