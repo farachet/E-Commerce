@@ -6,15 +6,18 @@ import Navbar from './componenets/navbar/navbar';
 import Seller from "./componenets/seller/Seller";
 import AboutUs from './componenets/Aboutus/AboutUs.jsx';
 
+import Register from './componenets/Register/Register.jsx'
+
 function App() {
   return (
     <div className='app' >
 
-      <Navbar/>
+      {/* <Navbar/> */}
 
 <br/>
 <br/>
-    <Seller/>
+    {/* <Login/> */}
+    <Register/>
     </div>
     
  
