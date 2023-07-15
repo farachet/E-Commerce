@@ -1,3 +1,4 @@
+
 const router=require("express").Router()
 const {AddProducts , getAllProducts , UpdateProduct, deleteAll, deleteById, getAllProductsByName}=require("../controllers/productscontroller")
 
@@ -16,3 +17,4 @@ router.delete("/get/:productname", getAllProductsByName )
 
 
 module.exports=router
+

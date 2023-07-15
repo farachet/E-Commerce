@@ -5,8 +5,12 @@ const categoryRouter = require("./routes/categoryRoutes");
 const AdminRouter = require("./routes/admin");
 const cardsRouter = require("./routes/cardsRoutes");
 const clientRouter = require("./routes/clientRoutes");
-const postsRouter = require("./routes/postsRouter")
-const personalcollectionRouter =require("./routes/personnalcollRouters")
+
+const postsRouter = require("./routes/postsRouter");
+const personalcollectionRouter = require("./routes/personnalcollRouters");
+
+
+
 const cookieParser = require('cookie-parser')
 const userRoute = require('./routes/UserRoutes')
 
@@ -16,16 +20,16 @@ const userRoute = require('./routes/UserRoutes')
 
 const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
-const cors = require("cors")
-
+const cors = require("cors");
 
 
 const app = express();
-const PORT = process.env.PORT || 3000
+
+const PORT = process.env.PORT || 3000;
+
 
 app.use(cors())
 app.use(cookieParser())
-
 
 
 
@@ -36,12 +40,19 @@ app.use(express.static(__dirname + "/../client/dist"));
 app.use("/api/seller", sellerRoute);
 app.use("/api/product", productRoute);
 app.use("/api/admin", AdminRouter);
-app.use("/api/cards",cardsRouter);
-app.use("/api/client",clientRouter);
-app.use("/api/posts",postsRouter);
-app.use("/api/personalcollection ",personalcollectionRouter);
+
+app.use("/api/cards", cardsRouter);
+app.use("/api/client", clientRouter);
+app.use("/api/posts", postsRouter);
+app.use("/api/personalcollection ", personalcollectionRouter);
+
+
+
+
+
 app.use("/api/category",categoryRouter);
 app.use("/api/user", userRoute);
+
 
 sequelize.sync().then(() => console.log("database connected"));
 sequelize
