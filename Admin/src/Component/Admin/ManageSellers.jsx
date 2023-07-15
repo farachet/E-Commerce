@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Button } from '@mui/material';
 import './ManageSeller.css'
 
 
@@ -19,10 +20,12 @@ const ManageSellers = () => {
     {
     field: 'delete',
     headerName: 'Actions',
-    width: 58,
+    width: 75,
     sortable: false,
     renderCell: (params) => (
-     <div onClick={() => deleteData  (params.row.id)}> <DeleteIcon /></div>
+      <Button onClick={() => deleteData  (params.row.id)} variant="outlined" color="error">
+      Delete
+     </Button>
     ),
     }
 ];
@@ -60,7 +63,7 @@ const deleteData = async (id) => {
       }, [])
  
   return (
-    <div>
+    <div >
   <div class="table-header">List of Sellers</div>
   <div class="table-container">
     <DataGrid

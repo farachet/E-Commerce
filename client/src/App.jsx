@@ -11,11 +11,7 @@ function App() {
     <div className='app' >
 
       <Navbar/>
-
-    <Client />
-<br/>
-<br/>
-    <Seller/>
+<AboutUs/>
     </div>
     
  

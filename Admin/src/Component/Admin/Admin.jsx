@@ -68,7 +68,7 @@ export default function DataGridDemo() {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/admin/all");
+      const response = await axios.get("http://localhost:3000/api/admin/all");
       setCategories(response.data);
       // Convert categories to rows for DataGrid
       const convertedRows = response.data.map((category) => ({
@@ -89,7 +89,7 @@ export default function DataGridDemo() {
   const addCategory = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/admin/addcategory",
+        "http://localhost:3000/api/admin/addcategory",
         {
           categoryname: newCategory,
         }

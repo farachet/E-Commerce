@@ -8,7 +8,7 @@ module.exports = {
   //GetAll
   getAllSellers(req, res) {
     
-
+console.log("hello")
     seller
       .findAll()
       .then((sellers) => {
@@ -69,72 +69,25 @@ module.exports = {
       });
     
   },
- 
+  deleteProduct(req, res) {
+    
+    const {id} = req.params;
+    console.log("fffffff",id)
 
+    Products
+      .destroy({ where: { id:id } })
+      .then((rowsDeleted) => {
+        if (rowsDeleted === 0) {
+          return res.status(404).json({ error: `product not found` });
+        }
+        res.status(200).json({ message: `product deleted successfully` });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: `Failed to delete product` });
+      });
+    },
 
-  //Get one
-  // getUser(req, res) {
-  //   const { id, role } = req.params;
-
-  //   user
-  //     .findOne({ where: { id, role } })
-  //     .then((user) => {
-  //       if (!user) {
-  //         return res.status(404).json({ error: `${role} not found` });
-  //       }
-  //       res.status(200).json(user);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       res.status(500).json({ error: `Failed to get ${role}` });
-  //     });
-  // // },
-  // //Add user
-  // addUser(req, res) {
-  //   const { firstName, lastName, email, password, image, birthday, role } =
-  //     req.body;
-
-  //   user
-  //     .create({
-  //       firstName,
-  //       lastName,
-  //       email,
-  //       password,
-  //       image,
-  //       birthday,
-  //       role,
-  //     })
-  //     .then((createdUser) => {
-  //       res.status(201).json(createdUser);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       res.status(500).json({ error: `Failed to create ${role}` });
-  //     });
-  // },
-
-  //Update user
-  // updateUser(req, res) {
-  //   const { id, role } = req.params;
-  //   const { firstName, lastName, email, password, image, birthday } = req.body;
-
-  //   user
-  //     .update(
-  //       { firstName, lastName, email, password, image, birthday },
-  //       { where: { id, role } }
-  //     )
-  //     .then(([rowsUpdated]) => {
-  //       if (rowsUpdated === 0) {
-  //         return res.status(404).json({ error: `${role} not found` });
-  //       }
-  //       res.status(200).json({ message: `${role} updated successfully` });
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       res.status(500).json({ error: `Failed to update ${role}` });
-  //     });
-  // },
-  //delete user
 
   getAllProducts(req, res) {
     Products.findAll({})
@@ -144,6 +97,34 @@ module.exports = {
       .catch((error) => {
         console.error(error);
         res.status(500).json({ error: "Failed to get products" });
+      });
+  },
+  getAllProds(req, res) {
+    Products.findAll({
+      where: {
+        approved: 0
+      }
+    })
+      .then((products) => {
+        res.status(200).json(products);
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: "Failed to get products" });
+      });
+  },
+  updateProds(req, res) {
+
+    const id= req.params.id;
+
+    Products
+      .update({ approved:1}, { where: { id: id } })
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: "Failed to update product" });
       });
   },
 

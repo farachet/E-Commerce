@@ -65,8 +65,7 @@ function AppAdmin() {
 
   return (
     <div>
-      <button>Client</button>
-      <button>Seller</button>
+      
 
       <h3>Filter By Days:</h3>
       <select
