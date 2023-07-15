@@ -1,4 +1,5 @@
 const {Products}= require('../database/models/products')
+const {category}=require("../database/models/category")
 
 module.exports = {
   AddProducts: (req, res) => {
@@ -76,5 +77,14 @@ module.exports = {
       .catch((err) => {
         res.status(500).send(err);
       });
+  },
+  getAllProductss:(req,res)=>{
+    Products.findAll({include:[{ model: category, as: 'category' }]})
+    .then(result=>{
+        res.status(200).send(result)
+    })
+    .catch(err=>{
+      res.status(500).send(err)
+    })
   }
 };
