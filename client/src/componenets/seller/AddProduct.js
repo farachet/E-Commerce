@@ -1,7 +1,20 @@
-import React from "react";
+import React , {useState} from "react";
 import { Box, Input, Button } from "@mui/material";
 import "./style.css";
-const AddProducts = () => {
+const AddProducts = ({AddNewProduct }) => {
+
+  const [name, setName] = useState("");
+  const [price ,setPrice ]= useState("");
+  const [reference, setReference] = useState("");
+  const [ image ,setImage ]= useState("");
+  const [status ,setStatus ]= useState("");
+  const [approved ,setApproved ]= useState("");
+
+  
+
+
+
+
   return (
     <Box>
       <Box className="box2">
@@ -29,9 +42,10 @@ const AddProducts = () => {
             }}
           >
             <Input
+            value={name}  onChange={(event) => setName(event.target.value)} 
               className="inpuut"
               placeholder="Type product name"
-              sx={{ left: 25, top: 100, color: "white" }}
+              sx={{ left: 25, top: 130, color: "white" }}
             />
           </Box>
 
@@ -46,6 +60,7 @@ const AddProducts = () => {
             }}
           >
             <Input
+             value={price}  onChange={(event) => setPrice(event.target.value)} 
               className="Price"
               placeholder="Type product Price"
               style={{
@@ -66,13 +81,42 @@ const AddProducts = () => {
             className="Group48095657"
             style={{
               width: 342,
+              color: "white",
               height: 24,
               left: 25,
-              top: 270,
+              top: 250,
               position: "absolute",
             }}
           >
             <Input
+           value={reference}
+  onChange={(event) => setReference(event.target.value)}
+              className="Image"
+              placeholder="Type product reference"
+              style={{
+                color: "white",
+                fontSize: 16,
+                fontFamily: "Poppins",
+                fontWeight: "500",
+                wordWrap: "break-word",
+               
+              }}
+            />
+          </Box>
+        </Box>
+
+        <Box
+            className="Group48095657"
+            style={{
+              width: 342,
+              height: 24,
+              left: 70,
+              top: 1030,
+              position: "absolute",
+            }}
+          >
+            <Input
+            value={image}  onChange={(event) => setImage(event.target.value)} 
               className="Image"
               placeholder="Type product Image"
               style={{
@@ -85,16 +129,72 @@ const AddProducts = () => {
               }}
             />
           </Box>
-        </Box>
+          <Box
+            className="Group48095657"
+            style={{
+              width: 342,
+              height: 24,
+              left: 70,
+              top: 1090,
+              position: "absolute",
+            }}
+          >
+            <Input
+            value={status}  onChange={(event) => setStatus(event.target.value)} 
+              className="Image"
+              placeholder="Type product status"
+              style={{
+                color: "white",
+                fontSize: 16,
+                fontFamily: "Poppins",
+                fontWeight: "500",
+                wordWrap: "break-word",
+               
+              }}
+            />
+          </Box>
+          <Box
+            className="Group48095657"
+            style={{
+              width: 342,
+              height: 24,
+              left: 70,
+              top: 1160,
+              position: "absolute",
+            }}
+          >
+            <Input
+            value={approved}  onChange={(event) => setApproved(event.target.value) } 
+              className="Image"
+              placeholder="Type product approved"
+              style={{
+                color: "white",
+                fontSize: 16,
+                fontFamily: "Poppins",
+                fontWeight: "500",
+                wordWrap: "break-word",
+               
+              }}
+            />
+          </Box>
+       
+
         <Box>
           <Button
+          onClick={() => {AddNewProduct(name , price , reference , image , status , approved)}}
             variant="contained"
-            sx={{ color: "white", top: 290, left: 70 }}
+            sx={{ color: "white", top: 500, left: 70 }}
           >
             Add
           </Button>
         </Box>
       </Box>
+
+
+
+
+
+ 
     </Box>
   );
 };
