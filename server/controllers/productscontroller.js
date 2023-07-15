@@ -22,7 +22,16 @@ module.exports = {
   },
 
   getAllProducts: (req, res) => {
-    Products.findAll({where : {sellerId} })
+    Products.findAll({where : {id : req.params.sellerId} })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+  getAllProductsByName: (req, res) => {
+    Products.findAll({where : {productname} })
       .then((result) => {
         res.json(result);
       })
@@ -58,7 +67,7 @@ module.exports = {
   },
 
   deleteAll: (req, res) => {
-    Products.destroy({ where: {sellerId}})
+    Products.destroy({ where: {id : sellerId}})
       .then(() => {
         res.status(204).send('deleted');
       })
