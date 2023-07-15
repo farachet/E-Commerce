@@ -1,9 +1,10 @@
 const router=require("express").Router()
-const {AddClient}=require("../controllers/clientController")
+const {updateClient,deleteClient}=require("../controllers/clientController")
 
 
 
-router.get("/client",AddClient)
+router.put("/edit/:clientId",updateClient)
+router.delete("/delete/:clientId",deleteClient)
 
 
 module.exports=router

@@ -1,9 +1,11 @@
 const router=require("express").Router()
-const {Addpersonalcollection}=require("../controllers/personnalcollcontroller")
+const {addToFavorite,getAllFavorite,deleteFavorite}=require("../controllers/personnalcollcontroller")
 
 
 
-router.get("/collection",Addpersonalcollection)
+router.post("/add/:clientId",addToFavorite)
+router.get('/getAll',getAllFavorite)
+router.delete("/delete/:productId",deleteFavorite)
 
 
 module.exports=router
