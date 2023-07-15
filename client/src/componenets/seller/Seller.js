@@ -73,6 +73,7 @@ const Seller = () => {
        productname: productname,
        price: price,
        reference: reference,
+      })
       //  image: image,
       //  status: status,
 
@@ -104,4 +105,4 @@ const Seller = () => {
   );
 };
 
-// export default Seller;
+export default Seller
