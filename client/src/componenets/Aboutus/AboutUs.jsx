@@ -54,25 +54,38 @@ const AboutUs = () => {
       </Box>
 
 <Box className="gridContainer" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', marginLeft: '13%', gap: '2px' }}>
-  <Box className="gridItem">
-    <img className="Rectangle1" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
-    <Typography className="name" style={{ textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 1</Typography>
-    <Typography className="position" style={{ textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 1</Typography>
+<Box className="gridItem" sx={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
+    <img className="Rectangle2" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
+    <Typography className="name" style={{textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 2</Typography>
+    <Typography className="position" style={{  textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 2</Typography>
   </Box>
-
+  <Box className="gridItem">
+    <img className="Rectangle2" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
+    <Typography className="name" style={{ textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 2</Typography>
+    <Typography className="position" style={{ textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 2</Typography>
+  </Box>
+  <Box className="gridItem">
+    <img className="Rectangle2" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
+    <Typography className="name" style={{ textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 2</Typography>
+    <Typography className="position" style={{ textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 2</Typography>
+  </Box>
+  <Box className="gridItem">
+    <img className="Rectangle2" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
+    <Typography className="name" style={{ textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 2</Typography>
+    <Typography className="position" style={{ textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 2</Typography>
+  </Box>
+  <Box className="gridItem">
+    <img className="Rectangle2" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
+    <Typography className="name" style={{ textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 2</Typography>
+    <Typography className="position" style={{ textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 2</Typography>
+  </Box>
   <Box className="gridItem">
     <img className="Rectangle2" style={{ width: 250, height: 292, borderRadius: 5 }} src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="Description" />
     <Typography className="name" style={{ textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'SF Pro Display', fontWeight: '600', letterSpacing: 0.44, wordWrap: 'break-word' }}>Person 2</Typography>
     <Typography className="position" style={{ textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'SF Pro Display', fontWeight: '500', letterSpacing: 0.32, wordWrap: 'break-word' }}>Position 2</Typography>
   </Box>
 
-  {/* Repeat the pattern for the remaining grid items */}
-  {/* <Box className="gridItem">...</Box> */}
-  {/* <Box className="gridItem">...</Box> */}
-  {/* <Box className="gridItem">...</Box> */}
-  {/* <Box className="gridItem">...</Box> */}
-  {/* <Box className="gridItem">...</Box> */}
-  {/* <Box className="gridItem">...</Box> */}
+
 </Box>
 
 
