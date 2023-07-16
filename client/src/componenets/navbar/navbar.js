@@ -33,11 +33,10 @@ function Navbar() {
 
 
 
- {/* <Link to='/home'> */}
+ 
  <Typography className="Home" style={{ display: "inline-block" }}>
     Home
   </Typography>
-  {/* </Link>  */}
   <Typography className="explore" style={{ display: "inline-block" }}>
     Explore
     <FormControl>
@@ -72,9 +71,7 @@ function Navbar() {
           <IconButton style={{ color: "white" , display: "inline-block"}}>
             <Chat className="iconMes" />
           </IconButton>
-           {/* <Link to="/">  */}
           <Avatar className="Avatar" src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" sx={{display: "inline-block"}}/>
-          {/* </Link>  */}
         </Box>
       </Toolbar>
     </AppBar>

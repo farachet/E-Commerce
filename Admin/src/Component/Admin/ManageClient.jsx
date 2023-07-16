@@ -5,6 +5,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useState,useEffect } from 'react';
 import axios from 'axios'
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Button } from '@mui/material';
+import "./ManageSeller.css"
   
 
  
@@ -13,8 +15,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const ManageClient = () => {
   const columnsClient = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'firstName', headerName: 'First name', width: 130 },
-    { field: 'lastName', headerName: 'Last name', width: 130 },
+    { field: 'firstName', headerName: 'First name', width: 150},
+    { field: 'lastName', headerName: 'Last name', width: 150 },
     {
       field: 'email',
       headerName: 'email',
@@ -22,11 +24,13 @@ const ManageClient = () => {
     },
     {
       field: 'delete',
-      headerName: '',
-      width: 50,
+      headerName: 'actions',
+      width: 75,
       sortable: false,
       renderCell: (params) => (
-       <div onClick={() => deleteData  (params.row.id)}> <DeleteIcon /></div>
+        <Button onClick={() => deleteData  (params.row.id)} variant="outlined" color="error">
+        Delete
+       </Button>
       ),
     },
    
