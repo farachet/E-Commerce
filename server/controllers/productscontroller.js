@@ -12,7 +12,7 @@ module.exports = {
       image: req.body.image,
       status: req.body.status,
       approved: req.body.approved,
-      sellerId: req.body.sellerId,
+      sellerId: req.body.sellerId
       
       
     })
@@ -25,7 +25,7 @@ module.exports = {
   },
 
   getAllProducts: (req, res) => {
-    Products.findAll({where : {id : req.params.sellerId} })
+    Products.findAll({where : {sellerId : req.params.sellerId } })
       .then((result) => {
         res.json(result);
       })
@@ -34,7 +34,7 @@ module.exports = {
       });
   },
   getAllProductsByName: (req, res) => {
-    Products.findAll({where : {productname} })
+    Products.findAll({where : {productname : req.params.productname} })
       .then((result) => {
         res.json(result);
       })
