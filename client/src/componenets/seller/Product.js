@@ -5,24 +5,12 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import "./style.css";
 
 
-const Products = ({data , deleteOneproduct , setShow , handleEdit}) => {
-
-
-  // const [name, setName] = useState("");
-  // const [price ,setPrice ]= useState("");
-  // const [reference, setReference] = useState("");
-  // const [ image ,setImage ]= useState("");
-  // const [status ,setStatus ]= useState("");
-  // const [approved ,setApproved ]= useState("");
-  // const [show , setShow] = useState()
-  
-
-
+const Products = ({dataa , deleteOneproduct , setShow , handleEdit}) => {
 
 
   return (
     <Box className="parent" >
-      {data.map((el ) => (
+      {dataa.map((el ) => (
     <Box key={el.id}  sx={{ backgroundColor:"rgba(255, 255, 255, 0.1)",
     width:"284px",
     height:"434px",

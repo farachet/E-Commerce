@@ -11,7 +11,7 @@ router.get("/getAll/:sellerId",getAllProducts )
 router.put("/edit/:id",UpdateProduct )
 router.delete("/deleteAll", deleteAll )
 router.delete("/deleteByid/:id", deleteById )
-router.delete("/get/:productname", getAllProductsByName )
+router.get("/get/:productname", getAllProductsByName )
 
 
 

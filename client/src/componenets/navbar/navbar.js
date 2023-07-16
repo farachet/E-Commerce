@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useEffect , useState}from "react";
 import "./style.css";
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -6,8 +6,26 @@ import Avatar from "@mui/material/Avatar";
 import { IconButton } from "@mui/material";
 import { NotificationsActive, Chat } from "@mui/icons-material";
 import { FormControl } from "@mui/material";
+import axios from "axios"
 
-function Navbar() {
+
+
+function Navbar({search}) {
+
+
+  const [input , setInput] = useState("")
+
+  
+
+
+
+
+
+
+
+  
+
+
   return (
     <AppBar position="static" className="header" style={{  display: "flex" , justifycontent : 'spaceBetween' }}>
       <Toolbar >
@@ -18,7 +36,15 @@ function Navbar() {
 
   <Box className="search-container" style={{ display: "inline-block" }}>
     <SearchIcon className="search-icon" />
-    <input
+    <input 
+    value={input}
+    onChange={(e) => {
+      setInput(e.target.value)
+      search(input)
+      
+      }}
+    
+
       className="search-items"
       type="text"
       placeholder="Search Items, Fashion, Collection, and Users"
