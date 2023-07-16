@@ -10,7 +10,7 @@ import ShopCart from './componenets/AllProduct/ShopCart/ShopCart.jsx';
 
 function App() {
   return (
-    <div className='app' >
+    <Box  >
 
       <Navbar/>
 
