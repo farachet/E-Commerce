@@ -10,7 +10,7 @@ const Client = () => {
     setRefresh(!refresh)
   }
   useEffect(()=>{
-      axios.get(`http://localhost:3001/api/posts//allUserPosts/${1}`)
+      axios.get(`http://localhost:3001/api/posts/allUserPosts/${1}`)
       .then(res=>setPost(res.data))
       .catch(err=>console.error(err))
   },[refresh])
@@ -21,12 +21,16 @@ const Client = () => {
     })
     .catch(err=>console.log(err))
   }
-
+  const deletePost=(postId)=>{
+    axios.delete(`http://localhost:3001/api/posts/deletePost/${postId}`)
+    .then(res=>setRefresh(!refresh))
+    .catch(err=>console.error(err))
+  }
   return (
     <div >
       <ClientHeader/>
       
-      <ClientBody addPost={addPost} posts={posts} handleRefresh={handleRefresh}/>
+      <ClientBody deletePost={deletePost} addPost={addPost} posts={posts} handleRefresh={handleRefresh}/>
 
     </div>
   )

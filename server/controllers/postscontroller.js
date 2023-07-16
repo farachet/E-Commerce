@@ -4,7 +4,7 @@ module.exports= {
     getUserPosts:(req,res)=>{
         posts.findAll({where:{
             clientId:req.params.clientId
-        },include:{model:client,as:"client"}})
+        },include:{model:client,as:"client"},order:[['createdAt', 'DESC']]})
         .then(result=>res.status(200).json(result))
         .catch(err=>res.status(500).json(err))
     },
@@ -29,4 +29,10 @@ module.exports= {
         .then(result=>res.status(201).json(result))
         .catch(err=>res.status(500).json(err))
     },
+    getAllPosts:(req,res)=>{
+        posts.findAll({include:{model:client,as:"client"},order: [['createdAt', 'DESC']]})
+
+        .then(result=>res.status(201).json(result))
+        .catch(err=>res.status(500).json(err))
+    }
 }

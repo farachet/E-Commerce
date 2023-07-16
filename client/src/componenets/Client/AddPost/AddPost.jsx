@@ -2,18 +2,22 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import "./AddPost.css"
 import { Avatar } from '@mui/material'
-
+import LoadingComponent from '../Header/updateProfile/Loading'
 const AddPost = ({addPost,handleRefresh}) => {
     const [post,setPost]=useState("")
     const  [imageUrl,setImageUrl]=useState("")
     const[file,setFile]=useState("")
+    const [isLoading,setIsLoading]=useState(false)
    
     const uploadImage=async()=>{
       const form=new FormData()
       form.append("file",file)
       form.append("upload_preset","travelMind")
       await axios.post("https://api.cloudinary.com/v1_1/do25iiz1j/upload",form)
-      .then(res=>setImageUrl(res.data.secure_url))
+      .then(res=>{
+        setImageUrl(res.data.secure_url)
+        setIsLoading(false)
+      })
       .catch(err=>console.log(err))
     }
   return (
@@ -25,14 +29,16 @@ const AddPost = ({addPost,handleRefresh}) => {
                 />
                 <input className='about-trip'  placeholder=" write about your trip here ..." value={post} onChange={(e)=>setPost(e.target.value)} />
                 <input className='image-input' type='file' onChange={(e)=>setFile(e.target.files[0])} />
-                <button className='addPost' onClick={()=>{
+            {isLoading?<LoadingComponent/>:                <button className='addPost' onClick={()=>{
                   uploadImage()
-                }} >upload Image</button>
+                  setIsLoading(true)
+                }} >upload Image</button>}
             {imageUrl&&  <button className='addPost' onClick={()=>{
                     
                     addPost({"content":post,"image":imageUrl})
                     setPost("")
                     handleRefresh()
+                    setImageUrl("")
                 }}>Add Post</button>}
         </div>
 
