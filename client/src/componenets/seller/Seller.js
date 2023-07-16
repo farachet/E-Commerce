@@ -34,7 +34,7 @@ const Seller = ({dataa}) => {
           approved : approved ,
           sellerId : sellerId
         
-//         };
+        };
         
         axios.post("http://localhost:8080/api/product/AddProduct" , newProduct)
         .then((res) => {
