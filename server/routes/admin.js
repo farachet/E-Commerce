@@ -17,6 +17,7 @@ const {
 } = require("../controllers/admincontrollerr");
 
 //router Category
+
 router.get("/allcategories", getAllCategories);
 router.get("/One/:id", getCategory);
 router.post("/addcategory", addCategories);

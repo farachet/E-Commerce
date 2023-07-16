@@ -1,15 +1,11 @@
-import React ,{ useState , useEffect }  from 'react';
 import './App.css';
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 import AllProduct from './componenets/AllProduct/AllProduct.jsx';
 import Client from './componenets/Client/Client.jsx';
 import Navbar from './componenets/navbar/navbar';
-import Seller from "./componenets/seller/Seller";
+// import Seller from "./componenets/seller/Seller";
 import AboutUs from './componenets/Aboutus/AboutUs.jsx';
-import Home from './componenets/Home/Home';
-import axios from "axios"
-
-
-
+import PersonalCollection from './componenets/PersonalCollection/PersonalCollection.jsx';
 
 function App() {
   const [data, setData] = useState([]);
@@ -42,15 +38,19 @@ function App() {
 
 
   return (
-    <div className='app' >
+    <div className='app'>
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/profile" element={<Client/>}/>
+      <Route path="/home" element={<AllProduct />}/>
+      <Route path="/PersonalCollection" element={<PersonalCollection/>}/>
+      {/* <Route path="/login" element={<Login />}/>
+      <Route path="/reservation" element={<Reservation/>}/>
+      <Route path="/one" element={<OneService />}/>  */}
+    </Routes> 
 
-      <Navbar search={search}/>
-
-<br/>
-<br/>
-    {/* <Seller dataa={data}/> */}
-    <Home/>
-    
+    </BrowserRouter>
     </div>
     
  
@@ -59,3 +59,32 @@ function App() {
 }
 
 export default App;
+
+
+// const [data, setData] = useState([]);
+
+// useEffect(() => {
+//   fetch();
+// }, []);
+
+// const fetch = () => {
+
+//   const sellerId = 1
+//     axios
+//       .get(`http://localhost:8080/api/product/getAll/${sellerId}`)
+//       .then((res) => {
+//         console.log(res.data)
+//         setData(res.data)
+//       })
+//       .catch((err) => {
+//         console.log(err)
+//       })
+//   }
+
+//   const search = (input) => {
+//     const filteredData = data.filter((el) =>
+//       el.productname.toLowerCase().includes(input.toLowerCase())
+//     );
+//     setData(filteredData);
+//     console.log(filteredData);
+//   }

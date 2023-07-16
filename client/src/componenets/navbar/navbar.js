@@ -24,6 +24,7 @@ function Navbar({search}) {
 
 
   
+import {Link} from "react-router-dom"
 
 
   return (
@@ -62,6 +63,11 @@ function Navbar({search}) {
  <Typography className="Home" style={{ display: "inline-block" }}>
     Home
   </Typography>
+  <Link to='/home'>
+ <Typography className="Home" style={{ display: "inline-block" }}>
+    All Products
+
+  </Typography></Link> 
   <Typography className="explore" style={{ display: "inline-block" }}>
     Explore
     <FormControl>
@@ -72,12 +78,22 @@ function Navbar({search}) {
       </Select>  */}
     </FormControl>
   </Typography>
-  <Typography
+ <Link to="/PersonalCollection">
+ <Typography
     className="personal-collection"
     style={{ display: "inline-block" }}
   >
     Personal Collection
   </Typography>
+ </Link> 
+ <Link to="/PersonalCollection">
+ <Typography
+    className="personal-collection"
+    style={{ display: "inline-block" }}
+  >
+    About Us
+  </Typography>
+ </Link> 
 
   <Typography variant="body1" className="drops" style={{ display: "inline-block" }}>
     Drops
@@ -96,7 +112,10 @@ function Navbar({search}) {
           <IconButton style={{ color: "white" , display: "inline-block"}}>
             <Chat className="iconMes" />
           </IconButton>
-          <Avatar className="Avatar" src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" sx={{display: "inline-block"}}/>
+          <Link to="/profile">
+              <Avatar className="Avatar" src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" 
+              sx={{display: "inline-block"}}/>
+          </Link>
         </Box>
       </Toolbar>
     </AppBar>

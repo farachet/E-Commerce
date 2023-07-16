@@ -90,8 +90,8 @@ const AddProducts = ({AddNewProduct }) => {
             }}
           >
             <Input
-           value={reference}
-  onChange={(event) => setReference(event.target.value)}
+            value={reference}
+            onChange={(event) => setReference(event.target.value)}
               className="Image"
               placeholder="Type product reference"
               style={{

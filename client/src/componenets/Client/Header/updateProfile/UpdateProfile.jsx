@@ -8,6 +8,7 @@ import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 
+
 const UpdateProfile = () => {
   const [open, setOpen] = useState(false);
 
@@ -45,9 +46,10 @@ const UpdateProfile = () => {
       </Button>
 
       <div>
-        <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
+        <Dialog open={open} onClose={handleClose}  >
           <DialogTitle>Update Profile</DialogTitle>
           <DialogContent>
+           
             {/* Place your form or profile update fields here */}
             {/* This content will appear in the dialog */}
           </DialogContent>
@@ -68,4 +70,4 @@ const UpdateProfile = () => {
   );
 };
 
-export default UpdateProfile;
+// export default UpdateProfile;

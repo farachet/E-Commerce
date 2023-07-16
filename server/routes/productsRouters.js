@@ -1,6 +1,6 @@
 
 const router=require("express").Router()
-const {AddProducts , getAllProducts , UpdateProduct, deleteAll, deleteById,getAllProductss}=require("../controllers/productscontroller")
+const {AddProducts , getAllProducts , UpdateProduct, deleteAll, deleteById,getAllProductss,updateStatus}=require("../controllers/productscontroller")
 
 
 
@@ -13,6 +13,7 @@ router.put("/edit/:id",UpdateProduct )
 router.delete("/deleteAll", deleteAll )
 router.delete("/deleteByid/:id", deleteById )
 router.get("/getAllProducts",getAllProductss)
+router.put("/updateStatus/:clientId",updateStatus)
 
 
 module.exports=router
