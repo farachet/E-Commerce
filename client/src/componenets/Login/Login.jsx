@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 const Login = () => {
 
     const [show , setShow] = useState(false)
+    const [email,setEmail]= useState ("")
+    const [password,setPassword]= useState ("")
     return (
         <Box >
         <Box style={{width : 100 , height : 150 , marginTop : -50}}> 

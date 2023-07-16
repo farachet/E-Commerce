@@ -17,6 +17,7 @@ function App() {
 <br/>
 <br/>
     {/* <Login/> */}
+
     <Register/>
     </Box>
     
