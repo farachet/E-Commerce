@@ -10,7 +10,10 @@ const {
   getAllClients,
   deleteClient,
   deleteSeller,
-  deleteCategory,
+  deleteProduct,
+  getAllProds,
+  updateProds
+  
 } = require("../controllers/admincontrollerr");
 
 //router Category
@@ -18,13 +21,13 @@ const {
 router.get("/allcategories", getAllCategories);
 router.get("/One/:id", getCategory);
 router.post("/addcategory", addCategories);
-router.put("/update/:id", updateCategories);
-router.delete("/delete/:id", deleteCategory);
+router.put("/updateprod/:id", updateCategories);
 
 //router Product
 router.get("/allProduct", getAllProducts);
-router.get("/OneProduct/:id", getProduct);
-
+router.get("/allprods", getAllProds);
+router.delete("/deleteproduct/:id",deleteProduct)
+router.put("/updateProds/:id",updateProds)
 //router user
 router.get("/AllSellers", getAllSellers);
 router.get("/AllClients", getAllClients);

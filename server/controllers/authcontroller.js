@@ -5,7 +5,12 @@ const jwt = require('jsonwebtoken')
 
 module.exports={
     Register: (req,res)=>{
+        console.log(req.body)
         const {firstName,lastName,email,password,image,birthday,role}=req.body
+
+        if ( !req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password  || !req.body.birthday ){
+            return res.status(422).json({errr:"Please filled the field property"});
+        }
         bcrypt.hash(password,8)
 
         .then((hash)=>{
@@ -14,18 +19,17 @@ module.exports={
             lastName,
             email,
             password:hash,
-            image,
+   
             birthday,
-            role}).
+            role,
+            }).
                 then(()=>{
                 return res.status(201).json("User registered successfuly")
             }).catch(err=>{
                     res.status(500).json({error:err}) 
             })
         })
-        if ( !req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password ||  !req.body.image || !req.body.birthday || !req.body.role){
-            return res.status(422).json({errr:"Please filled the field property"});
-        }
+
     },
 
  

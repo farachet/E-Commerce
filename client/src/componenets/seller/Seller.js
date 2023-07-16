@@ -15,9 +15,9 @@ const Seller = () => {
 
  
 
-    useEffect(() => {
-        fetch()
-      }, [refrech])
+//     useEffect(() => {
+//         fetch()
+//       }, [refrech])
 
 
       const handleEdit = (obj) => {
@@ -44,7 +44,7 @@ const Seller = () => {
           status: status,
           approved : approved
         
-        };
+//         };
         
         axios.post("http://localhost:3000/api/product/AddProduct" , newProduct)
         .then((res) => {
@@ -73,15 +73,16 @@ const Seller = () => {
        productname: productname,
        price: price,
        reference: reference,
+      })
       //  image: image,
       //  status: status,
 
-       })
-       .then(() => {
-        setRefrech(!refrech)
-       })
+//        })
+//        .then(() => {
+//         setRefrech(!refrech)
+//        })
 
-      }
+//       }
       
   return (
 
@@ -104,4 +105,4 @@ const Seller = () => {
   );
 };
 
-export default Seller;
+export default Seller
