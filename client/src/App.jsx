@@ -5,20 +5,20 @@ import Client from './componenets/Client/Client.jsx';
 import Navbar from './componenets/navbar/navbar';
 import Seller from "./componenets/seller/Seller";
 import AboutUs from './componenets/Aboutus/AboutUs.jsx';
-
 import Register from './componenets/Register/Register.jsx'
-
+import Login from "./componenets/Login/Login.jsx"
+import { Box } from '@mui/material';
 function App() {
   return (
-    <div className='app' >
+    <Box  >
 
-      {/* <Navbar/> */}
+      <Navbar/>
 
 <br/>
 <br/>
     {/* <Login/> */}
     <Register/>
-    </div>
+    </Box>
     
  
     
