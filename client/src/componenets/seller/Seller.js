@@ -34,7 +34,7 @@ const Seller = ({dataa}) => {
           approved : approved ,
           sellerId : sellerId
         
-        };
+//         };
         
         axios.post("http://localhost:8080/api/product/AddProduct" , newProduct)
         .then((res) => {
@@ -63,13 +63,14 @@ const Seller = ({dataa}) => {
        productname: productname,
        price: price,
        reference: reference,
+      })
       //  image: image,
       //  status: status,
 
-       })
-       .then(() => {
-        setRefrech(!refrech)
-       })
+//        })
+//        .then(() => {
+//         setRefrech(!refrech)
+//        })
 
       }
 
@@ -99,4 +100,4 @@ const Seller = ({dataa}) => {
   );
 };
 
-export default Seller;
+export default Seller
