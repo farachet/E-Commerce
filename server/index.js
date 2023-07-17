@@ -11,7 +11,7 @@ const personalcollectionRouter = require("./routes/personnalcollRouters");
 
 
 
-const cookieParser = require('cookie-parser')
+// const cookieParser = require('cookie-parser')
 const userRoute = require('./routes/UserRoutes')
 const mailRoute=require("./routes/mailerRouter")
 
@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 3001;
 
 
 app.use(cors())
-app.use(cookieParser())
+// app.use(cookieParser())
 
 
 
@@ -46,7 +46,7 @@ app.use("/api/cards", cardsRouter);
 app.use("/api/client", clientRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/personalcollection ", personalcollectionRouter);
-app.use("/api/mail",)
+// app.use("/api/mail",)
 
 
 

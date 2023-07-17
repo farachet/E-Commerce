@@ -34,7 +34,7 @@ const columnsProducts = [
 ];
 const deleteData = async (id) => {
   try {
-   const response =  await axios.delete(`http://localhost:3000/api/admin/deleteproduct/${id}`); 
+   const response =  await axios.delete(`http://localhost:3001/api/admin/deleteproduct/${id}`); 
    console.log(id)
 
      if(response.status === 200){
@@ -51,7 +51,7 @@ const [productsRows,setproductsRows]=useState([])
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/admin/allProduct'); 
+        const response = await axios.get('http://localhost:3001/api/admin/allProduct'); 
          console.log(response.data)
        
         const mappedproductsrows = response.data.map((row, index) => ({
