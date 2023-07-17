@@ -46,7 +46,7 @@ app.use("/api/cards", cardsRouter);
 app.use("/api/client", clientRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/personalcollection ", personalcollectionRouter);
-app.use("/api/mail",)
+app.use("/api/mail",mailRoute)
 
 
 

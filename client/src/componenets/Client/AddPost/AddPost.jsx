@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import "./AddPost.css"
 import { Avatar } from '@mui/material'
 import LoadingComponent from '../Header/updateProfile/Loading'
-const AddPost = ({addPost,handleRefresh}) => {
+const AddPost = ({addPost,handleRefresh,currentUser}) => {
     const [post,setPost]=useState("")
     const  [imageUrl,setImageUrl]=useState("")
     const[file,setFile]=useState("")
@@ -24,7 +24,7 @@ const AddPost = ({addPost,handleRefresh}) => {
   
         <div className='post-input'>
                          <Avatar
-                src='https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg'
+                src={currentUser.image}
                 sx={{width:"43px",height:"43px"}}
                 />
                 <input className='about-trip'  placeholder=" write about your trip here ..." value={post} onChange={(e)=>setPost(e.target.value)} />

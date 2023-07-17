@@ -1,54 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import AddProducts from "./AddProduct";
-import { Box, Button , Avatar, appBarClasses } from "@mui/material";
+import { Box } from "@mui/material";
 import Products from "./Product.js";
 import UpdateProducts from "./UpdateProducts";
 import Profil from "./Profil";
 import axios from "axios";
-import Navbar from "../navbar/navbar"
 
-const Seller = ({dataa}) => {
-    const [data, setData] = useState([]);
+import {ecommerceContext} from "../../ecommerceContext/e-commerceContext"
+const Seller = () => {
+  
+    const {currentUser}=useContext(ecommerceContext)
     const [refrech, setRefrech] = useState(false);
     const [show , setShow] = useState("AddProducts")
     const [Edit , setEdit] = useState({})
-
-
- 
-
+    const [data,setData]=useState([])
+console.log("aaaaaaaaa",currentUser.id)
   
+useEffect(()=>{
+  fetch()
+},[refrech])
+const fetch = () => {
 
+const sellerId = currentUser.id
+console.log("haw lenééééééé a",sellerId)
+  axios
+    .get(`http://localhost:3001/api/product/getAll/${sellerId}`)
+    .then((res) => {
+      console.log(res.data)
+      setData(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
 
+console.log("datata",data)
       const handleEdit = (obj) => {
          setEdit(obj)
       }
+      
 
-
-      const AddNewProduct = (productname , price , reference , image , status , approved , sellerId) => {
+      const AddNewProduct = (productname , price , reference , image , Category ) => {
+        console.log("categorirrrrrr",Category)
         const newProduct = {
           productname: productname,
           price: price,
           reference: reference,
           image: image,
-          status: status,
-          approved : approved ,
-          sellerId : sellerId
+          
+          category : Category ,
+          sellerId : currentUser.id,
+        
         
         };
+       
         
-        axios.post("http://localhost:8080/api/product/AddProduct" , newProduct)
+        axios.post("http://localhost:3001/api/product/AddProduct" , newProduct)
         .then((res) => {
           console.log(res.data)
-          setData([res.data])
           setRefrech(!refrech)
         })
         .catch((err) => {
           console.log(err)
         })
+     
 
       }
       const deleteOneproduct = (id) => {
-    axios.delete(`http://localhost:8080/api/product/deleteByid/${id}`)
+    axios.delete(`http://localhost:3001/api/product/deleteByid/${id}`)
      .then(() => {
       setRefrech(!refrech)
      })
@@ -58,12 +77,13 @@ const Seller = ({dataa}) => {
 
       }
       const UpdateProduct = (id , productname , price , reference ) => {
-       axios.put(`http://localhost:8080/api/product/edit/${id}` , {
+       axios.put(`http://localhost:3001/api/product/edit/${id}` , {
 
        productname: productname,
        price: price,
        reference: reference,
-      })
+      }).then(res=>setRefrech(!refrech))
+      .catch(err=>console.log(err))
       //  image: image,
       //  status: status,
 
@@ -75,7 +95,7 @@ const Seller = ({dataa}) => {
       }
 
 
-
+      console.log("dataaa",data)
   
       
   return (
@@ -87,14 +107,14 @@ const Seller = ({dataa}) => {
 
      <Box  >
 
-     <AddProducts AddNewProduct={AddNewProduct}  />
+     <AddProducts currentUser={currentUser} AddNewProduct={AddNewProduct}  />
      </Box>
 
      <Box style={{display : show && "none"}} >
       <UpdateProducts setShow={setShow} UpdateProduct={UpdateProduct}  Edit={Edit} />
       </Box>
 
-      <Products dataa={dataa}  deleteOneproduct={deleteOneproduct}  setShow={setShow}  handleEdit={handleEdit}/>
+      <Products data={data}  deleteOneproduct={deleteOneproduct}  setShow={setShow}  handleEdit={handleEdit}/>
     </Box>
     </Box>
   );

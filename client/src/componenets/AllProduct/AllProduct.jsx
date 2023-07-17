@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import { Box,Typography} from '@mui/material'
 import "./AllProduct.css"
 import Cart from "./Card.jsx"
@@ -6,18 +6,20 @@ import Filter from './Filter.jsx';
 import CardsFilter from './CardsFilter';
 import axios from 'axios';
 import ShopCart from "./ShopCart/ShopCart.jsx"
+import {ecommerceContext} from "../../ecommerceContext/e-commerceContext"
 const AllProduct = () => {
   const [cartItems,setCartItems]=useState([])
   const [totalCost,setTotalCost]=useState(0)
   const [refresh,setRefresh]=useState(false)
   const[products,setProducts]=useState([])
   const [isOpen, setIsOpen] = useState(false);
+  const {currentUser}=useContext(ecommerceContext)
   console.log(products)
   const handleCheckout=(clientId)=>{
-    axios.put(`http://localhost:3001/api/product/updateStatus/${clientId}`)
+    axios.put(`http://localhost:3001/api/product/updateStatus/${currentUser.id}`)
     .then(res=>{
       setRefresh(!refresh)
-      axios.delete(`http://localhost:3001/api/cards/deleteAll/${1}`)
+      axios.delete(`http://localhost:3001/api/cards/deleteAll/${currentUser.id}`)
     .then(()=>{
       setRefresh(!refresh)
     })
@@ -43,10 +45,10 @@ const AllProduct = () => {
     axios.get(`http://localhost:3001/api/product/getAllProducts`)
     .then((res)=>{
       console.log("query",query)
-      const updatedProducts=res.data.filter(ele=>ele.category.categoryname===query)
+      const updatedProducts=res.data.filter(ele=>ele.category.id===query)
       console.log("filltred") 
       setProducts(updatedProducts) 
-      
+
     })
     .catch((err)=>{
         console.log(err)
@@ -62,7 +64,7 @@ const AllProduct = () => {
     .catch((err)=>{
         console.log(err)
     })
-    axios.get(`http://localhost:3001/api/cards/getAll/${1}`)
+    axios.get(`http://localhost:3001/api/cards/getAll/${currentUser.id}`)
     .then((res)=>{
         setCartItems(res.data)
         const totalCost = res.data.reduce((acc, product) => acc + product.price, 0);
@@ -74,7 +76,7 @@ const AllProduct = () => {
     })
   },[refresh])
   const addToCart=(productId)=>{
-    axios.post(`http://localhost:3001/api/cards/add/${1}`,{productId})
+    axios.post(`http://localhost:3001/api/cards/add/${currentUser.id}`,{productId})
     .then(res=>{
       setRefresh(!refresh)
       openCart()
@@ -104,7 +106,7 @@ const AllProduct = () => {
   };
   const addToCollection=(data)=>{
     console.log("hey",data)
-    axios.post(`http://localhost:3001/api/posts/createPost/${1}`,data)
+    axios.post(`http://localhost:3001/api/posts/createPost/${currentUser.id}`,data)
     .then((res)=>{
       console.log("sent" )
     })
