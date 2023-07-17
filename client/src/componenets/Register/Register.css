@@ -21,5 +21,10 @@ top: 340px;}
      height: 477px ;
      background-repeat: no-repeat;
 }
-
+.MuiTypography-root .MuiTypography-body1 .css-1pnmrwp-MuiTypography-root{
+    color:aliceblue  !important;
+}
+.MuiTypography-root{
+    color: white;
+}
 

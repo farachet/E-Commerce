@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useContext,useEffect } from "react";
 import { Box, Typography, Avatar } from "@mui/material";
 import Cart from "../AllProduct/Card";
+import {ecommerceContext} from "../../ecommerceContext/e-commerceContext"
+import axios from "axios"
 
 const Home = () => {
+  const {currentUser,handleUser}=useContext(ecommerceContext)
+  useEffect(()=>{
+    const token=localStorage.getItem("token")
+    axios.post(`http://localhost:3001/api/user`,{"token":token})
+    .then(res=>{
+      
+      if(res.data.user){
+        console.log(res.data.user)
+        handleUser(res.data.user)
+      }
+     })
+    
+    .catch(err=>console.log("errrr",err))
+  },[])
+
+  console.log(currentUser)
   return (
-    <Box>
+    <Box sx={{
+      margin:"150px auto "
+    }}>
       <Box style={{ width: "100%", height: "100%", position: "relative" }}>
         <Box
           style={{

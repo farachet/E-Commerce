@@ -6,7 +6,7 @@ import ClientImages from './ClientImages/ClientImages.jsx';
 import ClientPosts from './ClientImages/ClientPosts.jsx';
 import AddPost from '../AddPost/AddPost.jsx';
 
-const ClientBody = ({addPost,posts,handleRefresh,deletePost}) => {
+const ClientBody = ({addPost,posts,handleRefresh,deletePost,currentUser,user}) => {
   return (
     <Box>
       
@@ -16,7 +16,7 @@ const ClientBody = ({addPost,posts,handleRefresh,deletePost}) => {
             <ClientImages posts={posts}/>
         </Box>
         <Box sx={{width:"750px",height:"532px"}}>
-        <AddPost handleRefresh={handleRefresh} addPost={addPost} />
+        <AddPost user={user} currentUser={currentUser} handleRefresh={handleRefresh} addPost={addPost} />
            <ClientPosts deletePost={deletePost}  posts={posts}/>
    
         </Box>
