@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container,Box, Typography, Avatar, Button } from '@mui/material'
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-const Card = () => {
+import FavoriteIcon from '@mui/icons-material/Favorite';
+const Card = ({product,addToCart,addToCollection}) => {
+if(!product){
+  return null
+}
+
   return (
     <Box sx={{ backgroundColor:"rgba(255, 255, 255, 0.1)",
     width:"284px",
@@ -12,7 +16,7 @@ const Card = () => {
     gap:"16px"
     }}>
       <Avatar 
-      src='https://thebrandhopper.com/wp-content/uploads/2021/10/Product-Innovation.jpg'
+      src={product.image}
       alt="image"
       sx={{width:"246px",height:"277px",borderRadius:"8px", marginTop:"10px"}}
       />
@@ -23,15 +27,16 @@ const Card = () => {
         width:"246px",
         
       }}>
-         <Typography
+                
+          <Typography
           variant='subtitle2'
           sx={{
             fontSize:"18px"
           }}>
-            Secret Rare
+         {product.category.categoryname}
           </Typography> 
           <Typography>
-            FA#581
+            {product.reference}
           </Typography>
       </Box>
       <Box sx={{
@@ -47,10 +52,10 @@ const Card = () => {
           fontSize:"18px",
           fontWeight:"bold"
         }}>
-          Lorem Ipsum
+         {product.productname}
         </Typography>
         <Typography >
-              0.0005 ETH
+             ${product.price}
         </Typography>
         <Typography>
 
@@ -63,8 +68,11 @@ const Card = () => {
         alignItems:"center"
         
       }}>
-            <FavoriteBorderRoundedIcon sx={{color:"red"}}/>
+            <FavoriteIcon onClick={
+              ()=>addToCollection({content:product.productname,image:product.image})
+            } sx={{color:"red",fontSize:"30px" ,cursor:"pointer"}}/>
             <Button 
+            onClick={()=>addToCart(product.id)}
             variant="contained"
             sx={{
               width:"84%",

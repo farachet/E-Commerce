@@ -4,18 +4,24 @@ import "./ClientBody.css"
 
 import ClientImages from './ClientImages/ClientImages.jsx';
 import ClientPosts from './ClientImages/ClientPosts.jsx';
+import AddPost from '../AddPost/AddPost.jsx';
 
-const ClientBody = () => {
+const ClientBody = ({addPost,posts,handleRefresh,deletePost}) => {
   return (
+    <Box>
+      
     <Container className="body-user-container" >
+      
         <Box sx={{backgroundColor:"rgba(255, 255, 255, 0.1)",width:"384px",height:"371px"}}>
-            <ClientImages/>
+            <ClientImages posts={posts}/>
         </Box>
         <Box sx={{width:"750px",height:"532px"}}>
-           <ClientPosts/>
+        <AddPost handleRefresh={handleRefresh} addPost={addPost} />
+           <ClientPosts deletePost={deletePost}  posts={posts}/>
    
         </Box>
     </Container>
+    </Box>
   )
 }
 

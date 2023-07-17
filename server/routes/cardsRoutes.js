@@ -1,9 +1,14 @@
 const router=require("express").Router()
-const {AddCards}=require("../controllers/cardscontroller")
+const {addToCart,getClientCart,deleteProductFromCart,deleteAllFromCart}=require("../controllers/cardscontroller")
 
 
 
-router.get("/card",AddCards)
+router.post("/add/:clientId",addToCart)
+router.get("/getAll/:clientId",getClientCart)
+router.delete("/delete/:productId",deleteProductFromCart)
+router.delete("/deleteAll/:clientId",deleteAllFromCart)
+
+
 
 
 module.exports=router
