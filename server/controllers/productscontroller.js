@@ -5,14 +5,16 @@ const {Op} = require('sequelize');
 
 module.exports = {
   AddProducts: (req, res) => {
+    console.log(req.body.category)
     Products.create({
       productname: req.body.productname,
       price: req.body.price,
       reference: req.body.reference,
       image: req.body.image,
-      status: req.body.status,
-      approved: req.body.approved,
-      sellerId: req.body.sellerId
+      status: "active",
+      approved: 0,
+      sellerId: req.body.sellerId,
+      categoryId:req.body.category
       
       
     })

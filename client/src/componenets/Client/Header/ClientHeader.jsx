@@ -11,7 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import axios from 'axios';
 import LoadingComponent from './updateProfile/Loading.jsx';
-const ClientHeader = () => {
+const ClientHeader = ({currentUser,user,handleRefresh}) => {
   const [open, setOpen] = useState(false);
   const [prictureOpen,setPictureOpen]=useState(false)
   const [isLoading,setIsLoading]=useState(false)
@@ -65,21 +65,21 @@ const ClientHeader = () => {
     for (let i = 0; i < birthDayArray.split(",").length; i++) {
       birthday += birthDayArray.split(",")[i]+"-";
     }
-    axios.put(`http://localhost:3001/api/client/edit/${1}`,{firstName:profileData.firstName
+    axios.put(`http://localhost:3001/api/client/edit/${user.id}`,{firstName:profileData.firstName
     ,lastName:profileData.lastName,
     email:profileData.email,
     birthday:birthday.slice(1,birthday.length-1)})
     .then(result=>{
       handleClosee()
-      setRefresh(!refresh)
+      handleRefresh()
     }).catch(err=>console.error(err))
 
     handleClose();
    
   }
   const handleSavee=()=>{
-    axios.put(`http://localhost:3001/api/client/edit/${1}`,{image:imageUrl})
-    .then(res=>console.log("imageUpdated"))
+    axios.put(`http://localhost:3001/api/client/edit/${user.id}`,{image:imageUrl})
+    .then(res=>handleRefresh())
     .catch(err=>console.error(err))
   }
   const handleChange = (e) => {
@@ -117,7 +117,7 @@ const ClientHeader = () => {
             className="avatar-container">
               <Avatar
               alt='profile'
-              src='https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg'
+              src={user.image}
               sx={{width: "100%", height: "100%"}}
               />
               <Box sx={{width:"31px",
@@ -136,11 +136,12 @@ const ClientHeader = () => {
               onClick={handleOpenn}
                sx={{color:"white"}}/>
               <Box className="profile-info">
-              <Typography variant='h4' sx={{color:"white",width:"max-content"}}>
-                    Farhan Khan 
+              <Typography variant='h6' sx={{color:"white",width:"max-content",marginRight:"20px"}}>
+                    {user.firstName+" "+user.lastName}
+                    {/* Farhan Khan */}
               </Typography>
               <Typography sx={{width:"max-content",color: 'rgba(255,255,255,0.40)',fontSize: 18}}>
-                    Farhan Khan 
+                  @{user.firstName}
               </Typography>
               </Box>
               </Box>

@@ -1,20 +1,27 @@
-import React , {useState} from "react";
-import { Box, Input, Button } from "@mui/material";
+import React , {useContext, useState} from "react";
+import { Box, Input, Button, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import "./style.css";
+import {ecommerceContext} from "../../ecommerceContext/e-commerceContext"
 const AddProducts = ({AddNewProduct }) => {
-
+const {currentUser}=useContext(ecommerceContext)
   const [name, setName] = useState("");
   const [price ,setPrice ]= useState("");
   const [reference, setReference] = useState("");
   const [ image ,setImage ]= useState("");
-  const [status ,setStatus ]= useState("");
+
   const [approved ,setApproved ]= useState("");
-  const [sellerId , setSellerId] = useState(1)
+  const [selectedCategory, setSelectedCategory] = useState(0);
+console.log("ahmed",selectedCategory)
+  console.log("addproduct",currentUser)
 
+  const handleAdd=()=>{
+    AddNewProduct(name , price , reference , image , selectedCategory  )
+  }
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+    
+  };
   
-
-
-
 
   return (
     <Box>
@@ -23,7 +30,7 @@ const AddProducts = ({AddNewProduct }) => {
           <Box
             className="Rectangle24"
             style={{
-              width: 259,
+              width: 364,
               height: 1204,
               left: 0,
               top: 0,
@@ -42,6 +49,45 @@ const AddProducts = ({AddNewProduct }) => {
               wordWrap: "break-word",
             }}
           >
+              <FormControl 
+            
+            fullWidth 
+            variant="standard"
+            
+            sx={{
+              width:364,
+                borderBottom:"0.5px solid rgba(255, 255, 255, 0.5)",
+                boxSizing:"border-box", marginTop:"20px"
+            }}>
+                      <InputLabel
+                        id="demo-simple-select-label"
+                        sx={{ color: '#FFF !important',
+                        padding:"0px 59px",
+                        fontW200eight:"bold"
+                        ,fontSize:"20px" }}
+                      >
+                        Category
+                      </InputLabel>
+            <Select
+            
+            onChange={(e)=>handleCategoryChange(e)}
+
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              sx={{
+                color: 'white',
+                boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: 0 }
+  
+              }}
+              value={selectedCategory}
+            >
+                <MenuItem value={1}>All Items</MenuItem>
+                <MenuItem value={2}>Less than $10</MenuItem>
+                <MenuItem value={3}>Less than $20</MenuItem>
+                <MenuItem value={4}>less than $30</MenuItem>
+            
+           </Select>
+    </FormControl>
             <Input
             value={name}  onChange={(event) => setName(event.target.value)} 
               className="inpuut"
@@ -60,21 +106,7 @@ const AddProducts = ({AddNewProduct }) => {
               position: "absolute",
             }}
           >
-            <Input
-             value={price}  onChange={(event) => setPrice(event.target.value)} 
-              className="Price"
-              placeholder="Type product Price"
-              style={{
-                left: 0,
-                top: 0,
-                color: "white",
-                fontSize: 16,
-                fontFamily: "Poppins",
-                fontWeight: "500",
-                wordWrap: "break-word",
-               
-              }}
-            />
+
           </Box>
 
           
@@ -140,19 +172,7 @@ const AddProducts = ({AddNewProduct }) => {
               position: "absolute",
             }}
           >
-            <Input
-            value={status}  onChange={(event) => setStatus(event.target.value)} 
-              className="Image"
-              placeholder="Type product status"
-              style={{
-                color: "white",
-                fontSize: 16,
-                fontFamily: "Poppins",
-                fontWeight: "500",
-                wordWrap: "break-word",
-               
-              }}
-            />
+            
           </Box>
           <Box
             className="Group48095657"
@@ -165,9 +185,9 @@ const AddProducts = ({AddNewProduct }) => {
             }}
           >
             <Input
-            value={approved}  onChange={(event) => setApproved(event.target.value) } 
+            value={price}  onChange={(event) => setPrice(event.target.value) } 
               className="Image"
-              placeholder="Type product approved"
+              placeholder="Type product price"
               style={{
                 color: "white",
                 fontSize: 16,
@@ -182,7 +202,10 @@ const AddProducts = ({AddNewProduct }) => {
 
         <Box>
           <Button
-          onClick={() => {AddNewProduct(name , price , reference , image , status , approved  , sellerId)}}
+          onClick={() => {
+            console.log(selectedCategory)
+            handleAdd()
+          }}
             variant="contained"
             sx={{ color: "white", top: 500, left: 70 }}
           >

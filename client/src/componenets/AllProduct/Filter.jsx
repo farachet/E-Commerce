@@ -103,9 +103,9 @@ console.log("cat",selectedCategory)
   
               }}
             >
-                <MenuItem value={"Category 1"}>Category 1</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={1}>Category 1</MenuItem>
+                <MenuItem value={2}>Twenty</MenuItem>
+                <MenuItem value={3}>Thirty</MenuItem>
            </Select>
     </FormControl>
     </div>

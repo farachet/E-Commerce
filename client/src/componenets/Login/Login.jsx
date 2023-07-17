@@ -1,14 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./Login.css"
-import { Box, Button , appBarClasses , Avatar , Input } from "@mui/material";
+import { Box, Button , appBarClasses , Avatar , Input, Select, MenuItem } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {ecommerceContext} from "../../ecommerceContext/e-commerceContext"
 
 const Login = () => {
-
+    const {handleUser,currentUser}=useContext(ecommerceContext)
     const [show , setShow] = useState(false)
     const [email,setEmail]= useState ("")
     const [password,setPassword]= useState ("")
+    const [role, setRole] = useState("");
+    const navigate=useNavigate()
+    const handleChangeRole=(e)=>{
+      setRole(e.target.value)
+    }
+    const handleSubmit= ()=>{
+      
+    
+      axios.post(`http://localhost:3001/api/user/signin`,{
+      "email":email,"password":password,"role":role
+      }).then(res=>{
+        console.log("aaa",res.data)
+        localStorage.setItem("token",res.data.acsessToken)
+    
+        if(res.data.acsessToken){
+          handleUser(res.data.existUser)
+            navigate("/home")
+        }else{
+          console.log("aaaaa")
+           alert("invalid username or password")
+            setEmail("") 
+            setPassword("")
+        }
+      })
+        .catch(err=>console.log(err))
+    
+    }
+    
     return (
         <Box >
         <Box style={{width : 100 , height : 150 , marginTop : -50}}> 
@@ -28,39 +59,71 @@ const Login = () => {
             }}
           >
 
+<Link to="/">
 <Typography variant="h1" component="h2" style={{   color : "white" , fontSize: 30 , fontFamily: 'SF Pro Display' , letterSpacing: 0.30 , wordWrap: 'break-word' , fontWeight: '800' , marginLeft : 35 , marginTop : 20}}>
      Login
     </Typography>
+</Link>
     <Box>
     <Typography variant="h1" component="h5" style={{   color : "white" , fontSize: 15 , fontFamily: 'SF Pro Display' , letterSpacing: 0.30 , wordWrap: 'break-word'  , marginLeft : 35 , marginTop: 50}}>
      New user ?
     </Typography>
-    <Typography variant="h1" component="h5" style={{ fontSize: 15 , fontFamily: 'SF Pro Display' , letterSpacing: 0.30 , wordWrap: 'break-word'  , marginLeft : 110 , marginTop: -20,  color: '#6C5DD3',
+    <Link to="/"><Typography variant="h1" component="h5" style={{ fontSize: 15 , fontFamily: 'SF Pro Display' , letterSpacing: 0.30 , wordWrap: 'break-word'  , marginLeft : 110 , marginTop: -20,  color: '#6C5DD3',
      fontSize: 18,
      fontFamily: 'SF Pro Display',
      fontWeight: '500',
      letterSpacing: 0.36}}>
      Create an account
     </Typography>-
+    </Link>
     </Box>
 
 
     <Box>
 <Typography style={{color: 'white', fontSize: 18, fontFamily: 'SF Pro Display', fontWeight: '400', letterSpacing: 0.36, wordWrap: 'break-word' , marginTop: 55 , marginLeft:30}}>Email Address</Typography>
-    <Input   className="Line381" style={{width: 409, fontFamily: 'SF Pro Display', height: 0, left: 30, top: 210, position: 'absolute', border: '0.25px rgba(255, 255, 255, 0.50) solid'  , color : "white"}}
+    <Input onChange={(e)=>setEmail(e.target.value)}  className="Line381" style={{width: 409, fontFamily: 'SF Pro Display', height: 0, left: 30, top: 210, position: 'absolute', border: '0.25px rgba(255, 255, 255, 0.50) solid'  , color : "white"}}
             />
    {!show && (
         <Box className="Frame1" style={{ width: 70, height: 10, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10, background: 'linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)', borderRadius: 121, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex' , marginLeft: 330 , marginTop : 20}}>
-          <Button style={{color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}> Continue</Button>
+          <Button onClick={()=>setShow(true)} style={{color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}> Continue</Button>
         </Box>
       )}
 
       {show && (
         <Box>
           <Typography style={{color: 'white', fontSize: 18, fontFamily: 'SF Pro Display', fontWeight: '400', letterSpacing: 0.36, wordWrap: 'break-word' , marginTop: 55 , marginLeft:30}}>Password</Typography>
-          <Input className="Line381" style={{width: 409, fontFamily: 'SF Pro Display', height: 0, left: 30, top: 290, position: 'absolute', border: '0.25px rgba(255, 255, 255, 0.50) solid'  , color : "white"}} />
+          <Input onChange={(e)=>setPassword(e.target.value)} className="Line381"  style={{width: 409, fontFamily: 'SF Pro Display', height: 0, left: 30, top: 290, position: 'absolute', border: '0.25px rgba(255, 255, 255, 0.50) solid'  , color : "white"}} />
+          <Box>
+            <Typography
+              variant="h5"
+              style={{
+                color: "white",
+                fontSize: 20,
+                fontFamily: "SF Pro Display",
+                letterSpacing: 0.30,
+                wordWrap: "break-word",
+                fontWeight: "800",
+                marginLeft: 35,
+                marginTop: 20,
+              }}
+            >
+              Role
+            </Typography>
+            <Select
+              value={role}
+              onChange={(e) => {
+                handleChangeRole(e)
+                console.log(e.target.value)
+              }}
+              sx={{ m: 1, width: "52ch" }}
+              variant="standard"
+            >
+              <MenuItem value="client">Client</MenuItem>
+              <MenuItem value="seller">Seller</MenuItem>
+            </Select>
+          </Box>
           <Box className="Frame1" style={{ width: 70, height: 10, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10, background: 'linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)', borderRadius: 121, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex' , marginLeft: 330 , marginTop : 20}}>
-            <Box className="Continue" style={{color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>Log In</Box>
+            <Box onClick={()=>handleSubmit()} className="Continue" style={{color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>Log In</Box>
           </Box>
         </Box>
       )}

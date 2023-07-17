@@ -5,12 +5,15 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import "./style.css";
 
 
-const Products = ({dataa , deleteOneproduct , setShow , handleEdit}) => {
-
-
+const Products = ({data , deleteOneproduct , setShow , handleEdit}) => {
+  console.log("dhia",data)
   return (
-    <Box className="parent" >
-      {dataa.map((el ) => (
+    <Box className="parent" sx={{
+      display :"flex",
+      flexWrap:"wrap  ",
+      gap:"121px"
+    }} >
+      {data.map((el ) => (
     <Box key={el.id}  sx={{ backgroundColor:"rgba(255, 255, 255, 0.1)",
     width:"284px",
     height:"434px",
@@ -39,7 +42,7 @@ const Products = ({dataa , deleteOneproduct , setShow , handleEdit}) => {
             Secret Rare
           </Typography> 
           <Typography>
-            {el.refrence}
+            {el.reference}
           </Typography>
       </Box>
       <Box sx={{
