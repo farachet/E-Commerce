@@ -13,6 +13,11 @@ export default function Header(props) {
         The top NFTs on _________ , ranked by volume, floor price and other
         statistics.
       </Typography>
+      <br />
+      <Button variant="contained">Client</Button>
+      <Button variant="contained" sx={{ marginLeft: 10 }}>
+        Seller
+      </Button>
       <Button variant="outlined" onClick={()=>{props.setClient()}}>Client</Button>
       <Button variant="outlined" onClick={()=>{props.setSeller()}}>Seller</Button>
       <Button variant="outlined" onClick={()=>{props.setcategory()}}>categories</Button>
