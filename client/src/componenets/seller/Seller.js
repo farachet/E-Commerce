@@ -98,21 +98,21 @@ console.log("datata",data)
       console.log("dataaa",data)
   
       
-  return (
+//   return (
 
    <Box>
    <Profil/>
   
      <Box sx={{ display: "flex"}}>
 
-     <Box  >
+//      <Box  >
 
      <AddProducts currentUser={currentUser} AddNewProduct={AddNewProduct}  />
      </Box>
 
-     <Box style={{display : show && "none"}} >
-      <UpdateProducts setShow={setShow} UpdateProduct={UpdateProduct}  Edit={Edit} />
-      </Box>
+//      <Box style={{display : show && "none"}} >
+//       <UpdateProducts setShow={setShow} UpdateProduct={UpdateProduct}  Edit={Edit} />
+//       </Box>
 
       <Products data={data}  deleteOneproduct={deleteOneproduct}  setShow={setShow}  handleEdit={handleEdit}/>
     </Box>
@@ -120,4 +120,4 @@ console.log("datata",data)
   );
 };
 
-export default Seller
+// export default Seller

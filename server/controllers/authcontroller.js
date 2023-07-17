@@ -4,6 +4,11 @@ const {seller}=require("../database/models/seller")
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
+module.exports = {
+  Register: (req, res) => {
+    console.log(req.body);
+    const { firstName, lastName, email, password, image, birthday, role } =
+      req.body;
 
 module.exports={
     Register: (req,res)=>{

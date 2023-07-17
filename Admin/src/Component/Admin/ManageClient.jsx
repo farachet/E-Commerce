@@ -39,7 +39,7 @@ const ManageClient = () => {
   
   const deleteData = async (id) => {
     try {
-     const response =  await axios.delete(`http://localhost:3000/api/admin/deleteClient/${id}`); 
+     const response =  await axios.delete(`http://localhost:3001/api/admin/deleteClient/${id}`); 
      console.log(id)
   
        if(response.status === 200){
@@ -54,7 +54,7 @@ const ManageClient = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/admin/AllClients'); 
+        const response = await axios.get('http://localhost:3001/api/admin/AllClients'); 
          console.log(response.data)
        
         const mappedclientRows = response.data.map((row, index) => ({

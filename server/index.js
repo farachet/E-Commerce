@@ -11,7 +11,7 @@ const personalcollectionRouter = require("./routes/personnalcollRouters");
 
 
 
-const cookieParser = require('cookie-parser')
+// const cookieParser = require('cookie-parser')
 const userRoute = require('./routes/UserRoutes')
 const mailRoute=require("./routes/mailerRouter")
 
@@ -23,14 +23,13 @@ const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
 const cors = require("cors");
 
-
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
 
 app.use(cors())
-app.use(cookieParser())
+// app.use(cookieParser())
 
 
 
@@ -48,13 +47,8 @@ app.use("/api/posts", postsRouter);
 app.use("/api/personalcollection ", personalcollectionRouter);
 app.use("/api/mail",mailRoute)
 
-
-
-
-
-app.use("/api/category",categoryRouter);
+app.use("/api/category", categoryRouter);
 app.use("/api/user", userRoute);
-
 
 sequelize.sync().then(() => console.log("database connected"));
 sequelize
