@@ -1,30 +1,9 @@
-import React, { useContext,useEffect } from "react";
-import { Box, Typography, Avatar } from "@mui/material";
-import Cart from "../AllProduct/Card";
-import {ecommerceContext} from "../../ecommerceContext/e-commerceContext"
-import axios from "axios"
-
+import React from "react";
+import { Container, Box, Typography, Avatar, Button } from "@mui/material";
+import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 const Home = () => {
-  const {currentUser,handleUser}=useContext(ecommerceContext)
-  useEffect(()=>{
-    const token=localStorage.getItem("token")
-    axios.post(`http://localhost:3001/api/user`,{"token":token})
-    .then(res=>{
-      
-      if(res.data.user){
-        console.log(res.data.user)
-        handleUser(res.data.user)
-      }
-     })
-    
-    .catch(err=>console.log("errrr",err))
-  },[])
-
-  console.log(currentUser)
   return (
-    <Box sx={{
-      margin:"150px auto "
-    }}>
+    <Box>
       <Box style={{ width: "100%", height: "100%", position: "relative" }}>
         <Box
           style={{
@@ -135,7 +114,6 @@ const Home = () => {
               }}
             >
               <Box
-                className="Heroleft"
                 style={{
                   width: 536,
                   height: 457,
@@ -145,7 +123,6 @@ const Home = () => {
                 }}
               >
                 <Box
-                  className="Group4"
                   style={{
                     width: 525,
                     height: 75,
@@ -155,7 +132,6 @@ const Home = () => {
                   }}
                 >
                   <Box
-                    className="Group1"
                     style={{
                       width: 72,
                       height: 75,
@@ -179,7 +155,6 @@ const Home = () => {
                       100+
                     </Box>
                     <Box
-                      className="Brands"
                       style={{
                         left: 0,
                         top: 45,
@@ -195,7 +170,6 @@ const Home = () => {
                     </Box>
                   </Box>
                   <Box
-                    className="Group2"
                     style={{
                       width: 173,
                       height: 75,
@@ -205,7 +179,6 @@ const Home = () => {
                     }}
                   >
                     <Box
-                      className="K"
                       style={{
                         left: 49,
                         top: 0,
@@ -231,7 +204,7 @@ const Home = () => {
                         fontWeight: "800",
                       }}
                     >
-                      Clothes are the Spirit of Fashion
+                      Glowlamps provide a soft and luminous glow
                     </Typography>
                     <Typography
                       style={{
@@ -247,7 +220,6 @@ const Home = () => {
                       Clothes are the Spirit of Fashion
                     </Typography>
                     <Box
-                      className="FashionDesigner"
                       style={{
                         left: 0,
                         top: 45,
@@ -263,7 +235,6 @@ const Home = () => {
                     </Box>
                   </Box>
                   <Box
-                    className="Group3"
                     style={{
                       width: 149,
                       height: 75,
@@ -287,7 +258,6 @@ const Home = () => {
                       60+
                     </Box>
                     <Box
-                      className="FashionShows"
                       style={{
                         left: 0,
                         top: 45,
@@ -331,7 +301,6 @@ const Home = () => {
                   </Box>
 
                   <Box
-                    className="Action"
                     style={{
                       width: 230,
                       height: 20,
@@ -341,7 +310,6 @@ const Home = () => {
                     }}
                   >
                     <Box
-                      className="Frame1"
                       style={{
                         width: 111,
                         height: 15,
@@ -362,7 +330,6 @@ const Home = () => {
                       }}
                     >
                       <Box
-                        className="ExploreNow"
                         style={{
                           color: "white",
                           fontSize: 20,
@@ -375,7 +342,6 @@ const Home = () => {
                       </Box>
                     </Box>
                     <Box
-                      className="Frame2"
                       style={{
                         width: 111,
                         height: 15,
@@ -653,7 +619,7 @@ const Home = () => {
             fontSize: 36,
           }}
         >
-          Fashion That Speaks
+          Glow that speaks
         </Typography>
         <Box>
           <Box
@@ -715,7 +681,6 @@ const Home = () => {
               }}
             >
               <Box
-                className="VerifiedBrands"
                 style={{
                   color: "white",
                   fontSize: 20,
@@ -828,17 +793,2042 @@ const Home = () => {
           justifyContent: "center",
           gap: "1rem",
           marginLeft: 100,
-          width : 1200 ,
+          width: 1200,
           marginTop: 50,
         }}
       >
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://i.etsystatic.com/37640157/r/il/87711d/4313894401/il_1080xN.4313894401_2sa6.jpg"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+             Glow Porcelain
+            </Typography>
+            <Typography>#493S52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+            
+             GlowLamp 
+            </Typography>
+            <Typography>200$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "red" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://rukminim1.flixcart.com/image/416/416/kg6vfrk0/table-lamp/q/y/e/glass-table-lamp-for-bedside-living-home-decoration-lamp-made-in-original-imafwhb5k9pfzthh.jpeg?q=70"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              Glow Porcelain 
+            </Typography>
+            <Typography>#493E65</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+               GlowLamp 
+            </Typography>
+            <Typography>500$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "red" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://cdn.shopify.com/s/files/1/0490/6585/3093/files/20230612_202339_3024x.jpg?v=1686637120"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              ball Lamp
+            </Typography>
+            <Typography>#493E52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+             GlowLamp 
+            </Typography>
+            <Typography>100$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "red" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://media.karousell.com/media/photos/products/2019/07/18/vietnam_rattan_classic_weaving_table_lamp_1563459021_52acccee.jpg"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              Vietnam Lamp
+            </Typography>
+            <Typography>#493E52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+              GlowLamp
+            </Typography>
+            <Typography>1000$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "white" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://picture.allocacoc.com.cn/front/202112/1638430637916.JPG-project_small"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+             Glow Porcelain
+            </Typography>
+            <Typography>#494E52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+            GlowLamp 
+            </Typography>
+            <Typography>500$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "white" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://www.futoncompany.co.uk/images/detailed/45/Glow_Lamp__24_.jpg"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              Glow Porcelain
+            </Typography>
+            <Typography>#5693E52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+             GlowLamp 
+            </Typography>
+            <Typography>600$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "white" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://wallmantra.com/cdn/shop/products/wallmantra-table-lamp-ethereal-glow-moon-lamp-32122080067750.jpg?v=1641471599"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              Moon Lamp
+            </Typography>
+            <Typography>#493E52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+             GlowLamp 
+            </Typography>
+            <Typography>900$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "white" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://shop.designist.ie/cdn/shop/products/Smart-Moon-Black_4_1500x1500_designist_lr_1200x1200.jpg?v=1671295559"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              Smart Moon Lamp
+            </Typography>
+            <Typography>#725H47</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+             GlowLamp 
+            </Typography>
+            <Typography>2000$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "white" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://cdn.notonthehighstreet.com/fs/34/8f/af1b-41f0-40da-9cee-c0a944202e0f/original_small-led-rainbow-glitter-light-globe.jpg"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+             Moon Lamp
+            </Typography>
+            <Typography>#693Z52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+              GlowLamp 
+            </Typography>
+            <Typography>1200$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "white" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box
+        className="NewTrending"
+        style={{
+          marginLeft: 555,
+          marginTop: 100,
+          color: "white",
+          fontSize: 40,
+          fontFamily: "Poppins",
+          fontWeight: "700",
+          wordWrap: "break-word",
+        }}
+      >
+        New & Trending
+      </Box>
+      <Box
+        className="LoremIpsumDolorSitAmetConsecteturAdipiscingElit"
+        style={{
+          width: "100%",
+          textAlign: "center",
+          color: "rgba(255, 255, 255, 0.50)",
+          fontSize: 20,
+          fontFamily: "Poppins",
+          fontWeight: "500",
+          wordWrap: "break-word",
+        }}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Box>
+
+      <Box
+        className="parent"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "1rem",
+          marginLeft: 100,
+          width: 1200,
+          marginTop: 50,
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://img1.ibay.com.mv/is1/full/2023/01/item_4491157_765.jpg"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+             Moon Lamp 
+            </Typography>
+            <Typography>#723HK2</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+              GlowLamp 
+            </Typography>
+            <Typography>2200$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "red" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIr8qQiHLFOykam4bMN9w9czSYy11TQhCwHw&usqp=CAU"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+              Light Glow Ceramic
+            </Typography>
+            <Typography>#493E52</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+              GlowLamp 
+            </Typography>
+            <Typography>880$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "red" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://i.pinimg.com/236x/9f/cd/75/9fcd753834b96f3118cea5ba64b73b04--led-night-light-night-lights.jpg"
+            alt="image"
+            sx={{
+              width: "246px",
+              height: "277px",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            >
+             Light Glow Ceramic
+            </Typography>
+            <Typography>#7135H21</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+            GlowLamp 
+            </Typography>
+            <Typography>1300$</Typography>
+            <Typography></Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <FavoriteBorderRoundedIcon sx={{ color: "red" }} />
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              Buy Now{" "}
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box
+        lassName="NewTrending"
+        style={{
+          marginLeft: 555,
+          marginTop: 100,
+          color: "white",
+          fontSize: 40,
+          fontFamily: "Poppins",
+          fontWeight: "700",
+          wordWrap: "break-word",
+        }}
+      >
+        Upcoming Creators
+      </Box>
+      <Box
+        style={{
+          width: "100%",
+          textAlign: "center",
+          color: "rgba(255, 255, 255, 0.50)",
+          fontSize: 20,
+          fontFamily: "Poppins",
+          fontWeight: "500",
+          wordWrap: "break-word",
+        }}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Box>
+
+      <Box
+        className="parent"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "1rem",
+          marginLeft: 100,
+          width: 1200,
+          marginTop: 50,
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://wallpapers.com/images/hd/profile-picture-background-u8upwya2nc2qlte7.jpg"
+            alt="image"
+            sx={{
+              width: 304,
+              height: "247px",
+              borderRadius: "8px",
+              marginTop: -1,
+            }}
+          />
+
+          <Avatar
+            src="https://img.freepik.com/free-photo/beautiful-girl-stands-near-walll-with-leaves_8353-5377.jpg?w=360"
+            style={{ width: 110, height: 100, marginTop: -50 }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            ></Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              style={{
+                color: "white",
+                fontSize: 20,
+                fontFamily: "Poppins",
+                fontWeight: "700",
+                wordWrap: "break-word",
+                marginTop: -25,
+                marginLeft: 80,
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              Emma Ad{" "}
+              <Avatar
+                src="https://cdn-icons-png.flaticon.com/128/6520/6520110.png"
+                style={{ width: 20, height: 20, marginLeft: 5, marginTop: 3 }}
+              ></Avatar>
+            </Typography>
+            <Typography
+              style={{
+                textAlign: "center",
+                color: "rgba(255, 255, 255, 0.50)",
+                fontSize: 12,
+                fontFamily: "Poppins",
+                fontWeight: "500",
+                wordWrap: "break-word",
+                marginTop: 30,
+                display: "flex",
+                marginLeft: -150,
+              }}
+            >
+              Lorem ipsum dolor sit amet
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              {" "}
+              + Follow{" "}
+            </Button>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://steamuserimages-a.akamaihd.net/ugc/1284038650231310978/E3245D54B4DEE90E35E61330C9D97145605D3265/?imw=1024&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+            alt="image"
+            sx={{
+              width: 304,
+              height: "247px",
+              borderRadius: "8px",
+              marginTop: -1,
+            }}
+          />
+
+          <Avatar
+            src="https://media.glamourmagazine.co.uk/photos/643911c5faffaaf0fce7d598/1:1/w_1280,h_1280,c_limit/SOFT%20GIRL%20AESTHETIC%20140423%20rachelteetyler_L.jpeg"
+            style={{ width: 110, height: 100, marginTop: -50 }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            ></Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              style={{
+                color: "white",
+                fontSize: 20,
+                fontFamily: "Poppins",
+                fontWeight: "700",
+                wordWrap: "break-word",
+                marginTop: -25,
+                marginLeft: 80,
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              Sarrah Za{" "}
+              <Avatar
+                src="https://cdn-icons-png.flaticon.com/128/6520/6520110.png"
+                style={{ width: 20, height: 20, marginLeft: 5, marginTop: 3 }}
+              ></Avatar>
+            </Typography>
+            <Typography
+              style={{
+                textAlign: "center",
+                color: "rgba(255, 255, 255, 0.50)",
+                fontSize: 12,
+                fontFamily: "Poppins",
+                fontWeight: "500",
+                wordWrap: "break-word",
+                marginTop: 30,
+                display: "flex",
+                marginLeft: -150,
+              }}
+            >
+              Lorem ipsum dolor sit amet
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              {" "}
+              + Follow{" "}
+            </Button>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: "284px",
+            height: "434px",
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <Avatar
+            src="https://img.freepik.com/free-photo/beautiful-milky-way-night-sky_53876-139825.jpg"
+            alt="image"
+            sx={{
+              width: 304,
+              height: "247px",
+              borderRadius: "8px",
+              marginTop: -1,
+            }}
+          />
+
+          <Avatar
+            src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?cs=srgb&dl=pexels-italo-melo-2379005.jpg&fm=jpg"
+            style={{ width: 110, height: 100, marginTop: -50 }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "rgba(255, 255, 255, 0.6)",
+              width: "246px",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontSize: "18px",
+              }}
+            ></Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+              width: "246px",
+              color: "white",
+            }}
+          >
+            <Typography
+              style={{
+                color: "white",
+                fontSize: 20,
+                fontFamily: "Poppins",
+                fontWeight: "700",
+                wordWrap: "break-word",
+                marginTop: -25,
+                marginLeft: 80,
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              Jhon Jack{" "}
+              <Avatar
+                src="https://cdn-icons-png.flaticon.com/128/6520/6520110.png"
+                style={{ width: 20, height: 20, marginLeft: 5, marginTop: 3 }}
+              ></Avatar>
+            </Typography>
+            <Typography
+              style={{
+                textAlign: "center",
+                color: "rgba(255, 255, 255, 0.50)",
+                fontSize: 12,
+                fontFamily: "Poppins",
+                fontWeight: "500",
+                wordWrap: "break-word",
+                marginTop: 30,
+                display: "flex",
+                marginLeft: -150,
+              }}
+            >
+              Lorem ipsum dolor sit amet
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: "246px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                width: "84%",
+                color: "white",
+                background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                justifyContent: "center",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+            >
+              {" "}
+              + Follow{" "}
+            </Button>
+          </Box>
+        </Box>
+
+        <Box
+          lassName="NewTrending"
+          style={{
+            marginLeft: 99,
+            marginTop: 100,
+            color: "white",
+            fontSize: 40,
+            fontFamily: "Poppins",
+            fontWeight: "700",
+            wordWrap: "break-word",
+          }}
+        >
+          {" "}
+          Upcoming Brands{" "}
+        </Box>
+        <Box
+          style={{
+            width: "100%",
+            textAlign: "center",
+            color: "rgba(255, 255, 255, 0.50)",
+            fontSize: 20,
+            fontFamily: "Poppins",
+            fontWeight: "500",
+            wordWrap: "break-word",
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </Box>
+
+        <Box
+          className="parent"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
+            marginLeft: 100,
+            width: 1200,
+            marginTop: 50,
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              width: "284px",
+              height: "434px",
+              padding: "10px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "16px",
+            }}
+          >
+            <Avatar
+              src="https://cdn.shopify.com/s/files/1/0383/9924/6476/files/ATL_new_Logo.jpg?v=1616496411"
+              alt="image"
+              sx={{
+                width: 304,
+                height: "247px",
+                borderRadius: "8px",
+                marginTop: -1,
+              }}
+            />
+
+            <Avatar
+              src="https://alberttradingltd.com/cdn/shop/files/NEW_ATL_LOGO_180x.png?v=1613684982"
+              style={{ width: 110, height: 100, marginTop: -50 }}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                color: "rgba(255, 255, 255, 0.6)",
+                width: "246px",
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontSize: "18px",
+                }}
+              ></Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "10px",
+                width: "246px",
+                color: "white",
+              }}
+            >
+              <Typography
+                style={{
+                  color: "white",
+                  fontSize: 20,
+                  fontFamily: "Poppins",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                  marginTop: -25,
+                  marginLeft: 80,
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                ATL{" "}
+                <Avatar
+                  src="https://cdn-icons-png.flaticon.com/128/6520/6520110.png"
+                  style={{ width: 20, height: 20, marginLeft: 5, marginTop: 3 }}
+                ></Avatar>
+              </Typography>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  color: "rgba(255, 255, 255, 0.50)",
+                  fontSize: 12,
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
+                  wordWrap: "break-word",
+                  marginTop: 30,
+                  display: "flex",
+                  marginLeft: -150,
+                }}
+              >
+                Lorem ipsum dolor sit amet
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: "246px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                sx={{
+                  width: "84%",
+                  color: "white",
+                  background:
+                    "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                  justifyContent: "center",
+                  fontWeight: "bold",
+                  borderRadius: "5px",
+                }}
+              >
+                {" "}
+                + Follow{" "}
+              </Button>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              width: "284px",
+              height: "434px",
+              padding: "10px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "16px",
+            }}
+          >
+            <Avatar
+              src="https://economictimes.indiatimes.com/thumb/msid-59738992,width-640,height-480,resizemode-75,imgsize-25499/amazon.jpg"
+              alt="image"
+              sx={{
+                width: 304,
+                height: "247px",
+                borderRadius: "8px",
+                marginTop: -1,
+              }}
+            />
+
+            <Avatar
+              src="https://www.1min30.com/wp-content/uploads/2017/12/Embl%C3%A8me-Amazon.jpg"
+              style={{ width: 110, height: 100, marginTop: -50 }}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                color: "rgba(255, 255, 255, 0.6)",
+                width: "246px",
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontSize: "18px",
+                }}
+              ></Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "10px",
+                width: "246px",
+                color: "white",
+              }}
+            >
+              <Typography
+                style={{
+                  color: "white",
+                  fontSize: 20,
+                  fontFamily: "Poppins",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                  marginTop: -25,
+                  marginLeft: 80,
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                amazon{" "}
+                <Avatar
+                  src="https://cdn-icons-png.flaticon.com/128/6520/6520110.png"
+                  style={{ width: 20, height: 20, marginLeft: 5, marginTop: 3 }}
+                ></Avatar>
+              </Typography>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  color: "rgba(255, 255, 255, 0.50)",
+                  fontSize: 12,
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
+                  wordWrap: "break-word",
+                  marginTop: 30,
+                  display: "flex",
+                  marginLeft: -150,
+                }}
+              >
+                Lorem ipsum dolor sit amet
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: "246px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                sx={{
+                  width: "84%",
+                  color: "white",
+                  background:
+                    "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                  justifyContent: "center",
+                  fontWeight: "bold",
+                  borderRadius: "5px",
+                }}
+              >
+                {" "}
+                + Follow{" "}
+              </Button>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              width: "284px",
+              height: "434px",
+              padding: "10px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "16px",
+            }}
+          >
+            <Avatar
+              src="https://img.freepik.com/vecteurs-premium/conception-logotype-livraison-express-rapide-symbole-fleche-pour-conception-modele-logo-texte-simple-logistique-transport-moderne_144543-1480.jpg"
+              alt="image"
+              sx={{
+                width: 304,
+                height: "247px",
+                borderRadius: "8px",
+                marginTop: -1,
+              }}
+            />
+
+            <Avatar
+              src="https://static.vecteezy.com/system/resources/previews/007/993/804/original/delivery-and-courier-motorbike-logo-icon-and-symbol-template-free-vector.jpg"
+              style={{ width: 110, height: 100, marginTop: -50 }}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                color: "rgba(255, 255, 255, 0.6)",
+                width: "246px",
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontSize: "18px",
+                }}
+              ></Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "10px",
+                width: "246px",
+                color: "white",
+              }}
+            >
+              <Typography
+                style={{
+                  color: "white",
+                  fontSize: 20,
+                  fontFamily: "Poppins",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                  marginTop: -25,
+                  marginLeft: 80,
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                Express{" "}
+                <Avatar
+                  src="https://cdn-icons-png.flaticon.com/128/6520/6520110.png"
+                  style={{ width: 20, height: 20, marginLeft: 5, marginTop: 3 }}
+                ></Avatar>
+              </Typography>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  color: "rgba(255, 255, 255, 0.50)",
+                  fontSize: 12,
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
+                  wordWrap: "break-word",
+                  marginTop: 30,
+                  display: "flex",
+                  marginLeft: -150,
+                }}
+              >
+                Lorem ipsum dolor sit amet
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: "246px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  width: "84%",
+                  color: "white",
+                  background:
+                    "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+                  justifyContent: "center",
+                  fontWeight: "bold",
+                  borderRadius: "5px",
+                }}
+              >
+                {" "}
+                + Follow{" "}
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box
+        lassName="NewTrending"
+        style={{
+          marginLeft: 599,
+          marginTop: 100,
+          color: "white",
+          fontSize: 40,
+          fontFamily: "Poppins",
+          fontWeight: "700",
+          wordWrap: "break-word",
+        }}
+      >
+        {" "}
+        Upcoming Brands{" "}
+      </Box>
+      <Box
+        style={{
+          width: "100%",
+          textAlign: "center",
+          color: "rgba(255, 255, 255, 0.50)",
+          fontSize: 20,
+          fontFamily: "Poppins",
+          fontWeight: "500",
+          wordWrap: "break-word",
+          marginTop: 30,
+          marginLeft: -2,
+        }}
+      >
+        Wanna Ask something.?
+      </Box>
+
+      <Box
+        style={{
+          width: "30%",
+          height: "50%",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          gap: 50,
+          display: "inline-flex",
+          marginLeft: 500,
+          marginTop: 100,
+        }}
+      >
+        <Box
+          style={{ width: 591, height: 50, position: "relative" }}
+        >
+          <Box
+            style={{
+              width: 18.05,
+              left: 572.95,
+              top: 0,
+              position: "absolute",
+              color: "rgba(255, 255, 255, 0.50)",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            +
+          </Box>
+          <Box
+            style={{
+              width: 259.99,
+              left: 0,
+              top: 0,
+              position: "absolute",
+              color: "rgba(255, 255, 255, 0.50)",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            Lorem ipsum ipsum ?
+          </Box>
+          <Box
+           
+            style={{
+              width: 589.8,
+              height: 0,
+              left: 0,
+              top: 50,
+              position: "absolute",
+              background: "rgba(255, 255, 255, 0.50)",
+              border: "0.50px white solid",
+            }}
+          ></Box>
+        </Box>
+        <Box
+          style={{ width: 591, height: 50, position: "relative" }}
+        >
+          <Box
+            style={{
+              width: 18.05,
+              left: 572.95,
+              top: 0,
+              position: "absolute",
+              color: "rgba(255, 255, 255, 0.50)",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            +
+          </Box>
+          <Box
+            style={{
+              width: 259.99,
+              left: 0,
+              top: 0,
+              position: "absolute",
+              color: "rgba(255, 255, 255, 0.50)",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            Lorem ipsum ipsum ?
+          </Box>
+          <Box
+            style={{
+              width: 589.8,
+              height: 0,
+              left: 0,
+              top: 50,
+              position: "absolute",
+              background: "rgba(255, 255, 255, 0.50)",
+              border: "0.50px white solid",
+            }}
+          ></Box>
+        </Box>
+        <Box
+          style={{ width: 591, height: 50, position: "relative" }}
+        >
+          <Box
+            style={{
+              width: 18.05,
+              left: 572.95,
+              top: 0,
+              position: "absolute",
+              color: "rgba(255, 255, 255, 0.50)",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            +
+          </Box>
+          <Box
+            style={{
+              width: 259.99,
+              left: 0,
+              top: 0,
+              position: "absolute",
+              color: "rgba(255, 255, 255, 0.50)",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            Lorem ipsum ipsum ?
+          </Box>
+          <Box
+            style={{
+              width: 589.8,
+              height: 0,
+              left: 0,
+              top: 50,
+              position: "absolute",
+              background: "rgba(255, 255, 255, 0.50)",
+              border: "0.50px white solid",
+            }}
+          ></Box>
+        </Box>
+      </Box>
+
+      <Box
+        style={{
+          width: 1050,
+          height: 300,
+          background: "linear-gradient(214deg, #B75CFF 0%, #671AE4 100%)",
+          borderRadius: 10,
+          marginTop: 200,
+          marginLeft: 250,
+        }}
+      >
+        <Typography
+          style={{
+            textAlign: "center",
+            color: "white",
+            fontSize: 50,
+            fontFamily: "Poppins",
+            fontWeight: "700",
+            wordWrap: "break-word",
+            marginTop: 100,
+          }}
+        >
+          Highest Quality
+          <br />
+          Collection
+        </Typography>
+        <Box
+          style={{
+            width: "20%",
+            height: "10%",
+            paddingLeft: 20,
+            paddingRight: 20,
+            paddingTop: 10,
+            paddingBottom: 10,
+            background: "rgba(255, 255, 255, 0.50)",
+            borderRadius: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 10,
+            display: "inline-flex",
+            marginTop: 70,
+            marginLeft: 380,
+          }}
+        >
+          <Button
+            style={{
+              color: "white",
+              fontSize: 20,
+              fontFamily: "Poppins",
+              fontWeight: "500",
+              wordWrap: "break-word",
+            }}
+          >
+            Get Started
+          </Button>
+        </Box>
       </Box>
     </Box>
   );

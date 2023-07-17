@@ -9,7 +9,6 @@ import AboutUs from './componenets/Aboutus/AboutUs.jsx';
 import PersonalCollection from './componenets/PersonalCollection/PersonalCollection.jsx';
 import Login from "./componenets/Login/Login.jsx"
 import Register from './componenets/Register/Register.jsx'
-
 import Home from "./componenets/Home/Home.js"
 import EcommerceContextProvider from './ecommerceContext/e-commerceContext.js'
 
