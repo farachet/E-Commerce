@@ -9,6 +9,18 @@ import Typography from "@mui/material/Typography";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90 },
+  // {
+  //   field: "image",
+  //   headerName: "Image",
+  //   width: 150,
+  //   renderCell: (params) => (
+  //     <img
+  //       src={params.value}
+  //       alt="Image"
+  //       style={{ width: 30, height: 30 }}
+  //     />
+  //   ),
+  // },
   {
     field: "Collection",
     headerName: "Collection",
@@ -57,6 +69,7 @@ export default function DataGridDemo() {
       );
       const imageUrl = response.data.secure_url;
       setImageUrl(imageUrl);
+     
     } catch (error) {
       console.error("Failed to upload image:", error);
     }
@@ -75,7 +88,7 @@ export default function DataGridDemo() {
       }));
       setRows(updatedRows);
     }
-  }, [imageUrl]);
+  }, []);
 
   // Fetch Categories
   const fetchCategories = async () => {
@@ -105,15 +118,16 @@ export default function DataGridDemo() {
         "http://localhost:3001/api/admin/addcategory",
         {
           categoryname: newCategory,
-          image: imageUrl,
-        }
+        image: imageUrl,
+        } 
       );
       const newCategoryData = response.data;
+      console.log('aaaa',response.data);
       const newData = {
         id: newCategoryData.id,
         Collection: {
           name: newCategoryData.categoryname,
-          image: newCategoryData.image,
+          image: imageUrl
         },
         Stock: stock,
       };
