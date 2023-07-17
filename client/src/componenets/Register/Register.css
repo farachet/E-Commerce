@@ -1,0 +1,25 @@
+.boxup
+{position: absolute;
+width: 459px;
+height: 33px;
+left: 810px;
+top: 340px;}
+
+.Rectangle1914{
+    
+    position: absolute;
+    width: 426px;
+    height: 76px;
+    left: 179px;
+    top: 721px;
+
+}
+
+.Image8{
+    background-image: url("../../imags/image\ 8.png");
+    width: 140.52px;
+     height: 477px ;
+     background-repeat: no-repeat;
+}
+
+

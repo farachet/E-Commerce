@@ -9,6 +9,7 @@ const AddProducts = ({AddNewProduct }) => {
   const [ image ,setImage ]= useState("");
   const [status ,setStatus ]= useState("");
   const [approved ,setApproved ]= useState("");
+  const [sellerId , setSellerId] = useState(1)
 
   
 
@@ -89,8 +90,8 @@ const AddProducts = ({AddNewProduct }) => {
             }}
           >
             <Input
-           value={reference}
-  onChange={(event) => setReference(event.target.value)}
+            value={reference}
+            onChange={(event) => setReference(event.target.value)}
               className="Image"
               placeholder="Type product reference"
               style={{
@@ -181,7 +182,7 @@ const AddProducts = ({AddNewProduct }) => {
 
         <Box>
           <Button
-          onClick={() => {AddNewProduct(name , price , reference , image , status , approved)}}
+          onClick={() => {AddNewProduct(name , price , reference , image , status , approved  , sellerId)}}
             variant="contained"
             sx={{ color: "white", top: 500, left: 70 }}
           >

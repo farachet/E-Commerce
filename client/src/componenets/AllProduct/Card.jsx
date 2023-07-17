@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container,Box, Typography, Avatar, Button } from '@mui/material'
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-const Card = ({product,addToCart}) => {
+import FavoriteIcon from '@mui/icons-material/Favorite';
+const Card = ({product,addToCart,addToCollection}) => {
 if(!product){
   return null
 }
@@ -68,7 +68,9 @@ if(!product){
         alignItems:"center"
         
       }}>
-            <FavoriteBorderRoundedIcon sx={{color:"red"}}/>
+            <FavoriteIcon onClick={
+              ()=>addToCollection({content:product.productname,image:product.image})
+            } sx={{color:"red",fontSize:"30px" ,cursor:"pointer"}}/>
             <Button 
             onClick={()=>addToCart(product.id)}
             variant="contained"

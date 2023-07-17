@@ -4,7 +4,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { useParams } from "react-router-dom";
 import "./CssAdmin.css";
 import Typography from "@mui/material/Typography";
 
@@ -34,24 +33,17 @@ const columns = [
     width: 150,
     editable: true,
   },
-  {
-    field: "Owner",
-    headerName: "Owner",
-    type: "number",
-    editable: true,
-    width: 160,
-  },
 ];
 
 export default function DataGridDemo() {
   const [rows, setRows] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const params = useParams();
 
+  const [stock, setStock] = useState(0);
   // Upload Image
   const [file, setFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState(""); // Store the image URL
+  const [imageUrl, setImageUrl] = useState("");
 
   const uploadImage = async () => {
     const form = new FormData();
@@ -64,7 +56,7 @@ export default function DataGridDemo() {
         form
       );
       const imageUrl = response.data.secure_url;
-      setImageUrl(imageUrl); // Store the image URL in state
+      setImageUrl(imageUrl);
     } catch (error) {
       console.error("Failed to upload image:", error);
     }
@@ -72,11 +64,11 @@ export default function DataGridDemo() {
 
   useEffect(() => {
     fetchCategories();
+    getProducts();
   }, []);
 
   useEffect(() => {
     if (imageUrl) {
-      // If imageUrl is available, update the rows with the new image URL
       const updatedRows = rows.map((row) => ({
         ...row,
         Collection: { ...row.Collection, image: imageUrl },
@@ -89,18 +81,17 @@ export default function DataGridDemo() {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/admin/allcategories"
+        "http://localhost:8080/api/admin/allcategories"
       );
-      setCategories(response.data);
+      const categoriesData = response.data;
 
-      // Convert filtered data to rows for DataGrid
-      const newRows = response.data.map((category) => ({
+      setCategories(categoriesData);
+
+      const newRows = categoriesData.map((category) => ({
         id: category.id,
         Collection: { name: category.categoryname, image: category.image },
         Stock: category.Stock,
-        Owner: category.Owner,
       }));
-
       setRows(newRows);
     } catch (error) {
       console.error("Failed to fetch categories:", error);
@@ -111,10 +102,10 @@ export default function DataGridDemo() {
   const addCategory = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/admin/addcategory",
+        "http://localhost:8080/api/admin/addcategory",
         {
           categoryname: newCategory,
-          image: imageUrl, // Include the image URL in the request
+          image: imageUrl,
         }
       );
       const newCategoryData = response.data;
@@ -124,8 +115,7 @@ export default function DataGridDemo() {
           name: newCategoryData.categoryname,
           image: newCategoryData.image,
         },
-        Stock: newCategoryData.Stock,
-        Owner: newCategoryData.Owner,
+        Stock: stock,
       };
       setRows((prevRows) => [...prevRows, newData]);
       setNewCategory("");
@@ -137,9 +127,23 @@ export default function DataGridDemo() {
   // Delete categories
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/admin/delete/${id}`);
+      await axios.delete(`http://localhost:8080/api/admin/delete/${id}`);
       const updatedRows = rows.filter((row) => row.id !== id);
       setRows(updatedRows);
+    } catch (error) {
+      console.error("Failed to delete category:", error);
+    }
+  };
+
+  // get Products stock
+  const getProducts = async (id) => {
+    try {
+      const categoryId = id;
+      const response = await axios.get(
+        `http://localhost:8080/api/admin/allPro/${categoryId}`
+      );
+      console.log("hello", response.data.length);
+      setStock(response.data.length);
     } catch (error) {
       console.error("Failed to delete category:", error);
     }
@@ -199,39 +203,31 @@ export default function DataGridDemo() {
                 value={newCategory}
                 onChange={(e) => setNewCategory(e.target.value)}
               />
-
-              <Button variant="outlined" onClick={addCategory}>
-                Add
-              </Button>
               <div>
                 <input
-                  id="image"
                   type="file"
-                  className="form-control form-control-lg"
-                  placeholder="image"
-                  required
-                  minLength="3"
                   defaultValue={file}
                   onChange={(e) => setFile(e.target.files[0])}
                 />
                 <br />
-                <button
-                  type="button"
+                <Button
+                  variant="outlined"
                   onClick={() => {
                     uploadImage();
+                    addCategory();
                   }}
                 >
-                  Upload
-                </button>
+                  Add
+                </Button>
               </div>
             </div>
           </Box>
         </Box>
         <Box
           sx={{
-            display: "flex", // Set display to flex
-            flexDirection: "row", // Set flexDirection to row
-            justifyContent: "space-around", // Add space between the boxes
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
           }}
         >
           <Box

@@ -39,5 +39,12 @@ module.exports={
         }})
         .then(result=>res.status(201).json(result))
         .catch(err=> res.status(500).json(err))
+    },
+    deleteAllFromCart:(req,res)=>{
+        cart.destroy({where:{
+            clientId:req.params.clientId
+        }})
+        .then(result=>res.status(201).json(result))
+        .catch(err=> res.status(500).json(err))
     }
 }

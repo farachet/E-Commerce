@@ -12,12 +12,52 @@ const AllProduct = () => {
   const [refresh,setRefresh]=useState(false)
   const[products,setProducts]=useState([])
   const [isOpen, setIsOpen] = useState(false);
+  console.log(products)
+  const handleCheckout=(clientId)=>{
+    axios.put(`http://localhost:3001/api/product/updateStatus/${clientId}`)
+    .then(res=>{
+      setRefresh(!refresh)
+      axios.delete(`http://localhost:3001/api/cards/deleteAll/${1}`)
+    .then(()=>{
+      setRefresh(!refresh)
+    })
+    .catch((err)=>console.error(err))
+
+    })
+    .catch(err=>console.error(err))
+  }
+  const handleFilterPrice=(price)=>{
+    axios.get(`http://localhost:3001/api/product/getAllProducts`)
+    .then((res)=>{
+      
+      const updatedProducts=res.data.filter(ele=>ele.price<=price&&ele.status==="active")
+      console.log("filltred") 
+      setProducts(updatedProducts) 
   
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  }
+  const handleFilterCategory=(query)=>{
+    axios.get(`http://localhost:3001/api/product/getAllProducts`)
+    .then((res)=>{
+      console.log("query",query)
+      const updatedProducts=res.data.filter(ele=>ele.category.categoryname===query)
+      console.log("filltred") 
+      setProducts(updatedProducts) 
+      
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  
+  }
   useEffect(()=>{
     axios.get(`http://localhost:3001/api/product/getAllProducts`)
     .then((res)=>{
       
-        setProducts(res.data)
+        setProducts(res.data.filter(ele=>ele.status==="active"))
     })
     .catch((err)=>{
         console.log(err)
@@ -40,7 +80,7 @@ const AllProduct = () => {
       openCart()
       setTimeout(()=>{
         closeCart()
-      },2000)
+      },1000)
     })
     .catch(err=>console.error(err))
   }
@@ -62,6 +102,14 @@ const AllProduct = () => {
   const closeCart = () => {
     setIsOpen(false);
   };
+  const addToCollection=(data)=>{
+    console.log("hey",data)
+    axios.post(`http://localhost:3001/api/posts/createPost/${1}`,data)
+    .then((res)=>{
+      console.log("sent" )
+    })
+    .catch(err=>console.log(err))
+  }
   return (
     <Box className='allProducts-container' style={{
       margin:"200px 40px ",
@@ -71,7 +119,7 @@ const AllProduct = () => {
       gap:"3%"
 
     }}>
-      <ShopCart totalCost={totalCost} handleDeleteFromCart={handleDeleteFromCart} cartItems={cartItems} openCart={openCart} closeCart={closeCart} isOpen={isOpen}/>
+      <ShopCart handleCheckout={handleCheckout} totalCost={totalCost} handleDeleteFromCart={handleDeleteFromCart} cartItems={cartItems} openCart={openCart} closeCart={closeCart} isOpen={isOpen}/>
       <Box sx={{
         width:"20%",
         backgroundColor:"rgba(255, 255, 255, 0.1)",
@@ -80,7 +128,7 @@ const AllProduct = () => {
         
 
       }}>
-        <Filter/>   
+        <Filter handleFilterPrice={handleFilterPrice} handleFilterCategory={handleFilterCategory}/>   
 
 
       </Box>
@@ -112,7 +160,7 @@ const AllProduct = () => {
                   marginTop:"25px"
                 }}
                 >
-                  23,344,420 items
+                  {products.length} items
                 </Typography>
                 <CardsFilter/>
 
@@ -125,9 +173,9 @@ const AllProduct = () => {
               
               flexWrap:"wrap",
             }}>
-                <Cart/>
+                
                 {products &&products.length!==0?
-                  products.map(product=><Cart addToCart={addToCart} product={product} key={product.id}/>):""
+                  products.map(product=><Cart addToCart={addToCart} addToCollection={addToCollection} product={product} key={product.id}/>):""
                 }
             </Box>
       </Box>

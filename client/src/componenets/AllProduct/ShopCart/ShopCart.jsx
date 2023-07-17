@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Box, Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Avatar, Box, Drawer, IconButton, List, ListItem, Button, Typography } from '@mui/material';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
+
 import "./ShopCart.css"
 import axios from "axios"
-const ShopCart = ({totalCost,cartItems,handleDeleteFromCart,openCart,closeCart,isOpen}) => {
+const ShopCart = ({totalCost,cartItems,handleDeleteFromCart,openCart,closeCart,isOpen,handleCheckout}) => {
   console.log("cartItems",cartItems)
   // const [isOpen, setIsOpen] = useState(false);
   if(!cartItems){
@@ -28,7 +29,7 @@ const ShopCart = ({totalCost,cartItems,handleDeleteFromCart,openCart,closeCart,i
     <>
   <ShoppingCartRoundedIcon onClick={openCart} sx={{
     position: "absolute",
-    right: "14%",
+    right: "16%",
     top: "22px",
     color: "white",
     cursor: "pointer"
@@ -113,11 +114,25 @@ const ShopCart = ({totalCost,cartItems,handleDeleteFromCart,openCart,closeCart,i
         })}
       </List>
     </div>
-    <div>
+   {totalCost>0?<> <div>
       <Typography variant="subtitle1" align="right" fontWeight="bold" fontSize={20}>
         Total {formatCurrency(totalCost)}
       </Typography>
     </div>
+    <Button
+    onClick={()=>handleCheckout(1)}
+    className='checkout-btn'
+        sx={{
+          color:"white",
+          fontWeight:"bold",
+          backgroundColor:"green",
+          '&:hover': {
+            backgroundColor: 'green', 
+          },
+
+
+        }}
+    >Checkout</Button></>:<Typography variant="subtitle1" sx={{color:"gray"}}>Empty Cart</Typography>}
   </Drawer>
 </>
 

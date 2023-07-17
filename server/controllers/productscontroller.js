@@ -1,5 +1,7 @@
 const {Products}= require('../database/models/products')
 const {category}=require("../database/models/category")
+const {cart}=require("../database/models/cards")
+const {Op} = require('sequelize');
 
 module.exports = {
   AddProducts: (req, res) => {
@@ -10,7 +12,7 @@ module.exports = {
       image: req.body.image,
       status: req.body.status,
       approved: req.body.approved,
-      sellerId: req.body.sellerId,
+      sellerId: req.body.sellerId
       
       
     })
@@ -23,7 +25,7 @@ module.exports = {
   },
 
   getAllProducts: (req, res) => {
-    Products.findAll({where : {id : req.params.sellerId} })
+    Products.findAll({where : {sellerId : req.params.sellerId } })
       .then((result) => {
         res.json(result);
       })
@@ -32,7 +34,7 @@ module.exports = {
       });
   },
   getAllProductsByName: (req, res) => {
-    Products.findAll({where : {productname} })
+    Products.findAll({where : {productname : req.params.productname} })
       .then((result) => {
         res.json(result);
       })
@@ -95,5 +97,27 @@ module.exports = {
     .catch(err=>{
       res.status(500).send(err)
     })
-  }
+  },
+  updateStatus:(req,res)=>{
+      console.log(req.params.clientId)
+    cart.findAll({where:{
+       clientId:req.params.clientId
+    }}).then((result=>{
+           const productIds=result.map(ele=>ele.productId)
+           Products.update({ status: 'selled' },{
+            
+               where:{
+                  id:{
+                      [Op.in]:productIds
+                  }
+              }
+          })
+          .then(result=>res.status(201).json(result))
+          .catch(err=> res.status(500).json(err))
+           
+    })).catch(err=>res.status(500).json(err))
+ 
+
+  
+},
 };
