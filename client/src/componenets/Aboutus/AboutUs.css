@@ -8,7 +8,7 @@
     height: '350px';
     
     margin-left: 33%;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 .about{
 color: #6C5DD3;
@@ -81,13 +81,14 @@ margin-left: 40% !important;;
     flex-direction: column;
     
     width: 450px;
-    height: 450px;
+    height: 600px;
     height: '350px';
     margin-left: 20%;
 }
 
 .img2{
     margin-left: 15%;
+    height: 600px;
 }
   .box4{
     display: flex;
@@ -102,3 +103,22 @@ margin-left: 40% !important;;
   .name{
     margin-right: 5%;
   }
+  .grid-container {
+    
+    display: flex;
+flex-wrap: wrap;  
+justify-content: center;
+gap:3px;
+margin-left: 50px;
+
+  }
+  
+  .grid-item {
+    width: 30%;
+    height: auto;
+    justify-content: center;
+  }
+  .center{
+    justify-content: center;
+  }
+  

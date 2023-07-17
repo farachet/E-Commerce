@@ -18,7 +18,8 @@ function App() {
 <br/>
 <br/>
     <Seller/> */}
-    <AllProduct/>
+    {/* <AllProduct/> */}
+    <AboutUs/>
     </div>
     
  
