@@ -23,7 +23,6 @@ const sequelize = require("./database/configdb");
 const { Sequelize } = require("sequelize");
 const cors = require("cors");
 
-
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -48,13 +47,8 @@ app.use("/api/posts", postsRouter);
 app.use("/api/personalcollection ", personalcollectionRouter);
 // app.use("/api/mail",)
 
-
-
-
-
-app.use("/api/category",categoryRouter);
+app.use("/api/category", categoryRouter);
 app.use("/api/user", userRoute);
-
 
 sequelize.sync().then(() => console.log("database connected"));
 sequelize

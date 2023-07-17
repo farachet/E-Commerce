@@ -1,6 +1,13 @@
 // const nodemailer = require('nodemailer');
 // const {admin}=require("../database/models/admin")
 
+// const mailer = nodemailer.createTransport({
+//     service: 'yahoo',
+//     auth: {
+//       user: 'rafikmhadhbi@yahoo.fr',
+//       pass: 'pvlzkdjalmylxcii',
+//     },
+//   });
 
 // const mailer = nodemailer.createTransport({
 //     service: 'yahoo',
