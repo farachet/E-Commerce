@@ -13,8 +13,11 @@ export default function Header() {
         The top NFTs on _________ , ranked by volume, floor price and other
         statistics.
       </Typography>
-      <Button variant="outlined">Client</Button>
-      <Button variant="outlined">Seller</Button>
+      <br />
+      <Button variant="contained">Client</Button>
+      <Button variant="contained" sx={{ marginLeft: 10 }}>
+        Seller
+      </Button>
     </Box>
   );
 }

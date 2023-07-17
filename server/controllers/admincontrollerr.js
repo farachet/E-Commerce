@@ -6,62 +6,62 @@ const { category } = require("../database/models/category");
 module.exports = {
   //Users
   //GetAll
-  getAllSellers(req, res) {
-    seller
-      .findAll()
-      .then((sellers) => {
-        res.status(200).json(sellers);
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: "Failed to get sellers" });
-      });
-  },
-  getAllClients(req, res) {
-    client
-      .findAll()
-      .then((clients) => {
-        res.status(200).json(clients);
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: "Failed to get clients" });
-      });
-  },
-  deleteClient(req, res) {
-    const { clientid } = req.params;
+  // getAllSellers(req, res) {
+  //   seller
+  //     .findAll()
+  //     .then((sellers) => {
+  //       res.status(200).json(sellers);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: "Failed to get sellers" });
+  //     });
+  // },
+  // getAllClients(req, res) {
+  //   client
+  //     .findAll()
+  //     .then((clients) => {
+  //       res.status(200).json(clients);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: "Failed to get clients" });
+  //     });
+  // },
+  // deleteClient(req, res) {
+  //   const { clientid } = req.params;
 
-    client
-      .destroy({ where: { id: clientid } })
-      .then((rowsDeleted) => {
-        if (rowsDeleted === 0) {
-          return res.status(404).json({ error: `client not found` });
-        }
-        res.status(200).json({ message: `client deleted successfully` });
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: `Failed to delete client` });
-      });
-  },
-  deleteSeller(req, res) {
-    console.log("fgh");
-    const { id } = req.params;
-    console.log(id);
+  //   client
+  //     .destroy({ where: { id: clientid } })
+  //     .then((rowsDeleted) => {
+  //       if (rowsDeleted === 0) {
+  //         return res.status(404).json({ error: `client not found` });
+  //       }
+  //       res.status(200).json({ message: `client deleted successfully` });
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: `Failed to delete client` });
+  //     });
+  // },
+  // deleteSeller(req, res) {
+  //   console.log("fgh");
+  //   const { id } = req.params;
+  //   console.log(id);
 
-    seller
-      .destroy({ where: { id: id } })
-      .then((rowsDeleted) => {
-        if (rowsDeleted === 0) {
-          return res.status(404).json({ error: `seller not found` });
-        }
-        res.status(200).json({ message: `seller deleted successfully` });
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: `Failed to delete seller` });
-      });
-  },
+  //   seller
+  //     .destroy({ where: { id: id } })
+  //     .then((rowsDeleted) => {
+  //       if (rowsDeleted === 0) {
+  //         return res.status(404).json({ error: `seller not found` });
+  //       }
+  //       res.status(200).json({ message: `seller deleted successfully` });
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       res.status(500).json({ error: `Failed to delete seller` });
+  //     });
+  // },
 
   //Get one
   // getUser(req, res) {
@@ -153,9 +153,23 @@ module.exports = {
         console.error(error);
         res.status(500).json({ error: "Failed to get product" });
       });
-    //Categories
-    //Get all categories
   },
+  // get products where categories id
+  getAllProd(req, res) {
+    const categoryId = req.params;
+    Products.findAll({ where: { categoryId: categoryId } })
+      .then((products) => {
+        res.status(200).json(products);
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: "Failed to get products by category" });
+      });
+  },
+
+  //Categories
+  //Get all categories
+
   getAllCategories(req, res) {
     category
       .findAll({})
@@ -167,6 +181,8 @@ module.exports = {
       });
     //get one categories
   },
+
+  //get one categories
   getCategory(req, res) {
     const { id } = req.params;
 
@@ -186,10 +202,11 @@ module.exports = {
   },
   //add categories
   addCategories(req, res) {
-    const { categoryname } = req.body;
+    const { categoryname, image } = req.body;
     category
       .create({
         categoryname,
+        image,
       })
       .then((categorie) => {
         res.status(201).json(categorie);
