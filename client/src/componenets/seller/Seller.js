@@ -78,21 +78,21 @@ const Seller = ({dataa}) => {
 
   
       
-  return (
+//   return (
 
    <Box>
    <Profil/>
   
      <Box sx={{ display: "flex"}}>
 
-     <Box  >
+//      <Box  >
 
-     <AddProducts AddNewProduct={AddNewProduct}  />
-     </Box>
+//      <AddProducts AddNewProduct={AddNewProduct}  />
+//      </Box>
 
-     <Box style={{display : show && "none"}} >
-      <UpdateProducts setShow={setShow} UpdateProduct={UpdateProduct}  Edit={Edit} />
-      </Box>
+//      <Box style={{display : show && "none"}} >
+//       <UpdateProducts setShow={setShow} UpdateProduct={UpdateProduct}  Edit={Edit} />
+//       </Box>
 
       <Products dataa={dataa}  deleteOneproduct={deleteOneproduct}  setShow={setShow}  handleEdit={handleEdit}/>
     </Box>
@@ -100,4 +100,4 @@ const Seller = ({dataa}) => {
   );
 };
 
-export default Seller
+// export default Seller
