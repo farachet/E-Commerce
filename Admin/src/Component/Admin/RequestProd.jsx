@@ -32,13 +32,7 @@ const RequestProd = () => {
    
   };
 
-  const handleEditFormClose = () => {
-    setEditOpen(false);
-  };
-  const onEdit =(ele)=>{
-    setselectedProduct(ele);
-    setEditOpen(true);
-  }
+ 
  
     const columnsProducts = [
         { field: 'id', headerName: 'ID', width: 70 },
@@ -85,7 +79,7 @@ const RequestProd = () => {
       useEffect (()=>{
   const fetchProds = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/admin/allprods");
+      const response = await axios.get("http://localhost:3001/api/admin/allprods");
 console.log (response.data)
       const convertedRows = response.data.map((ele) => ({
         id: ele.id,
@@ -105,7 +99,7 @@ console.log (response.data)
   }, [refrech])
   const deleteData = async (id) => {
     try {
-     const response =  await axios.delete(`http://localhost:3000/api/admin/deleteproduct/${id}`); 
+     const response =  await axios.delete(`http://localhost:3001/api/admin/deleteproduct/${id}`); 
      console.log(id)
   
        if(response.status === 200){
@@ -133,12 +127,7 @@ console.log (response.data)
         // checkboxSelection
       />
     </div>
-     {isEditOpen && (
-        <UpdateProduct
-          ele={selectedProduct}
-          onClose={handleEditFormClose}
-        />
-      )}
+     
    
      </div> 
    

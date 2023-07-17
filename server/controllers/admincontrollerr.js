@@ -33,23 +33,23 @@ console.log("hello")
   deleteClient(req, res) {
     const { clientid } = req.params;
 
-  //   client
-  //     .destroy({ where: { id: clientid } })
-  //     .then((rowsDeleted) => {
-  //       if (rowsDeleted === 0) {
-  //         return res.status(404).json({ error: `client not found` });
-  //       }
-  //       res.status(200).json({ message: `client deleted successfully` });
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       res.status(500).json({ error: `Failed to delete client` });
-  //     });
-  // },
-  // deleteSeller(req, res) {
-  //   console.log("fgh");
-  //   const { id } = req.params;
-  //   console.log(id);
+    client
+      .destroy({ where: { id: clientid } })
+      .then((rowsDeleted) => {
+        if (rowsDeleted === 0) {
+          return res.status(404).json({ error: `client not found` });
+        }
+        res.status(200).json({ message: `client deleted successfully` });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: `Failed to delete client` });
+      });
+  },
+  deleteSeller(req, res) {
+    console.log("fgh");
+    const { id } = req.params;
+    console.log(id);
 
     seller
       .destroy({ where: { id: id } })

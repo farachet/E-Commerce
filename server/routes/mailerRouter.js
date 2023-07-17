@@ -1,6 +1,6 @@
 const router=require("express").Router()
-const {sendMail}=require("../controllers/MailerController")
+// const {sendMail}=require("../controllers/MailerController")
 
-router.post("/sendMail",sendMail)    
+// router.post("/sendMail",sendMail)    
 
 module.exports=router
