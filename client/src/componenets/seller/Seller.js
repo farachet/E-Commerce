@@ -22,7 +22,7 @@ useEffect(()=>{
 const fetch = () => {
 
 const sellerId = currentUser.id
-console.log("haw lenééééééé a",sellerId)
+
   axios
     .get(`http://localhost:3001/api/product/getAll/${sellerId}`)
     .then((res) => {
@@ -34,14 +34,13 @@ console.log("haw lenééééééé a",sellerId)
     })
 }
 
-console.log("datata",data)
       const handleEdit = (obj) => {
          setEdit(obj)
       }
       
 
       const AddNewProduct = (productname , price , reference , image , Category ) => {
-        console.log("categorirrrrrr",Category)
+        
         const newProduct = {
           productname: productname,
           price: price,
@@ -84,21 +83,13 @@ console.log("datata",data)
        reference: reference,
       }).then(res=>setRefrech(!refrech))
       .catch(err=>console.log(err))
-      //  image: image,
-      //  status: status,
-
-//        })
-//        .then(() => {
-//         setRefrech(!refrech)
-//        })
-
-      }
+    }
 
 
-      console.log("dataaa",data)
+
   
       
-//   return (
+  return (
 
    <Box>
    <Profil/>
@@ -120,4 +111,4 @@ console.log("datata",data)
   );
 };
 
-// export default Seller
+export default Seller
