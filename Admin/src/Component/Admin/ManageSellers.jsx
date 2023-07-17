@@ -32,7 +32,7 @@ const ManageSellers = () => {
 
 const deleteData = async (id) => {
   try {
-   const response =  await axios.delete(`http://localhost:3000/api/admin/deleteSeller/${id}`); 
+   const response =  await axios.delete(`http://localhost:3001/api/admin/deleteSeller/${id}`); 
    console.log(id)
 
      if(response.status === 200){
@@ -47,7 +47,7 @@ const deleteData = async (id) => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:3000/api/admin/AllSellers'); 
+            const response = await axios.get('http://localhost:3001/api/admin/AllSellers'); 
              console.log(response.data)
              const mappedSellerRows = response.data.map((row, index) => ({
                 ...row,

@@ -55,6 +55,12 @@ export default function Header(props) {
       >
         Requests
       </Button>
+     
+      <Button variant="outlined" onClick={()=>{props.setClient()}}>Client</Button>
+      <Button variant="outlined" onClick={()=>{props.setSeller()}}>Seller</Button>
+      <Button variant="outlined" onClick={()=>{props.setcategory()}}>categories</Button>
+      <Button variant="outlined" onClick={()=>{props.setproduct()}}>products</Button>
+      <Button variant="outlined" onClick={()=>{props.setRequests()}}>Requests</Button>
     </Box>
   );
 }

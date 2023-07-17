@@ -1,6 +1,6 @@
-const { user } = require("../database/models/user");
-//const bcrypt = require('bcrypt');
-//const jwt = require("jsonwebtoken");
+const {user}= require('../database/models/user')
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken')
 
 module.exports = {
   Register: (req, res) => {
