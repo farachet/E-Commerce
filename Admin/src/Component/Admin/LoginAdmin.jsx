@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { Box, Typography, Link, Input, Button, Avatar, Snackbar } from "@mui/material"; // Import Snackbar from MUI
+import {
+  Box,
+  Typography,
+  Link,
+  Input,
+  Button,
+  Avatar,
+ // Snackbar,
+} from "@mui/material"; // Import Snackbar from MUI
+import axios from "axios";
 
-
-function LoginAdmin() {
+function LoginAdmin({ setLogin }) {
   const [email, setEmail] = useState("");
   const [show, setShow] = useState(false);
   const [password, setPassword] = useState("");
@@ -20,19 +28,49 @@ function LoginAdmin() {
     } else {
       console.log("Please fill in all required fields");
     }
+    axios
+      .post(`http://localhost:3001/api/mail/sendMail`, {
+        username: email,
+        password: password,
+      })
+      .then((res) => setLogin("client"))
+      .catch((err) => console.error(err));
   }
   //alert
- 
 
   function handleGeneratePwd() {
+    const perm = (str) => {
+      var result = [];
+      if (str.length <= 8) {
+        if (str.length === 1) {
+          result.push(str);
+          return result;
+        }
+        for (var i = 0; i < str.length; i++) {
+          var charsLeft = str.substring(0, i) + str.substring(i + 1);
+          var innerPermutations = perm(charsLeft);
+          for (var j = 0; j < innerPermutations.length; j++) {
+            result.push(str[i] + innerPermutations[j]);
+          }
+        }
+
+        return result;
+      }
+      return "too many permutations!it's gonna take  along time,almost an infinit loop  ";
+    };
+    axios
+      .post(`http://localhost:3001/api/mail/sendMail`, {
+        password: perm("rafikah")[Math.floor(Math.random() * 1000)],
+      })
+      .then((res) => console.log("sucess"))
+      .catch((err) => console.log(err));
     setShow(true);
     setSnackbarOpen(true);
   }
 
-  function handleClose() {
-    setSnackbarOpen(false);
-  }
-
+  // function handleClose() {
+  //   setSnackbarOpen(false);
+  // }
 
   return (
     <div>
@@ -42,7 +80,7 @@ function LoginAdmin() {
             width: 490,
             height: 600,
             left: 699,
-            top: 130,
+            top: 457,
             position: "absolute",
             background: "rgba(255, 255, 255, 0.10)",
             boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.15)",
@@ -149,34 +187,36 @@ function LoginAdmin() {
                   gap: 10,
                   display: "inline-flex",
                   marginLeft: 330,
-                  marginTop: 0
+                  marginTop: 0,
                 }}
               >
-              <Box>
-        {/* Your existing code */}
-        <Button
-          onClick={handleGeneratePwd}
-          style={{
-            color: "white",
-            fontSize: 16,
-            fontFamily: "Poppins",
-            fontWeight: "400",
-            wordWrap: "break-word",
-          }}
-        >
-          Generate PWD
-        </Button>
-        <Snackbar
-          open={snackbarOpen}
-          autoHideDuration={3000}
-          onClose={handleClose}
-          message="Check your mail" 
-          ContentProps={{
-            sx: { color: "white" },
-          }}
-        />
-      </Box>
-             
+                <Box>
+                  {/* Your existing code */}
+                  <Button
+                    onClick={() => {
+                      handleGeneratePwd();
+                      alert("check your mail!");
+                    }}
+                    style={{
+                      color: "white",
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: "400",
+                      wordWrap: "break-word",
+                    }}
+                  >
+                    Generate PWD
+                  </Button>
+                  {/* <Snackbar
+                    open={snackbarOpen}
+                    autoHideDuration={5000}
+                    onClose={handleClose}
+                    message="Check your mail"
+                    ContentProps={{
+                      sx: { color: "white" },
+                    }}
+                  /> */}
+                </Box>
               </Box>
             )}
 
