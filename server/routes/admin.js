@@ -5,6 +5,7 @@ const {
   addCategories,
   updateCategories,
   getAllProducts,
+  deleteCategory,
   getProduct,
   getAllSellers,
   getAllClients,
@@ -12,8 +13,8 @@ const {
   deleteSeller,
   deleteProduct,
   getAllProds,
-  updateProds
-  
+  updateProds,
+  getAllProd
 } = require("../controllers/admincontrollerr");
 
 //router Category
@@ -22,12 +23,15 @@ router.get("/allcategories", getAllCategories);
 router.get("/One/:id", getCategory);
 router.post("/addcategory", addCategories);
 router.put("/updateprod/:id", updateCategories);
+router.delete("/delete/:id", deleteCategory);
 
+//router product where categories id
+router.get("/allPro/:categoryId", getAllProd);
 //router Product
 router.get("/allProduct", getAllProducts);
 router.get("/allprods", getAllProds);
-router.delete("/deleteproduct/:id",deleteProduct)
-router.put("/updateProds/:id",updateProds)
+router.delete("/deleteproduct/:id", deleteProduct);
+router.put("/updateProds/:id", updateProds);
 //router user
 // router.get("/AllSellers", getAllSellers);
 // router.get("/AllClients", getAllClients);

@@ -81,7 +81,7 @@ export default function DataGridDemo() {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/admin/allcategories"
+        "http://localhost:3001/api/admin/allcategories"
       );
       const categoriesData = response.data;
 
@@ -102,7 +102,7 @@ export default function DataGridDemo() {
   const addCategory = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/admin/addcategory",
+        "http://localhost:3001/api/admin/addcategory",
         {
           categoryname: newCategory,
           image: imageUrl,
@@ -127,7 +127,7 @@ export default function DataGridDemo() {
   // Delete categories
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/admin/delete/${id}`);
+      await axios.delete(`http://localhost:3001/api/admin/delete/${id}`);
       const updatedRows = rows.filter((row) => row.id !== id);
       setRows(updatedRows);
     } catch (error) {
@@ -140,7 +140,7 @@ export default function DataGridDemo() {
     try {
       const categoryId = id;
       const response = await axios.get(
-        `http://localhost:8080/api/admin/allPro/${categoryId}`
+        `http://localhost:3001/api/admin/allPro/${categoryId}`
       );
       console.log("hello", response.data.length);
       setStock(response.data.length);
